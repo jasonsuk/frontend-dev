@@ -28,3 +28,13 @@ address {
 	margin: 0pxl;
 	color: #0f0f0f;
 }
+
+/* give seperation betwen navbar and body */
+body {
+	padding-top: 50px;
+	z-index: 0;
+}
+
+.navbar-dark {
+	background-color: #512DAB;
+}
