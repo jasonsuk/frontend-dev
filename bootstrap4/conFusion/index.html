@@ -38,13 +38,18 @@
 
     <header class="jumbotron">
         <div class="container">
-            <div class="row row-header">
-                <div class="col-12 col-sm-6"> 
+            <div class="row row-header d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-6"> 
                     <h1>Ristorante con Fusion</h1>
                     <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
                 </div >
-                <div class="col-12 col-sm align-self-center">
+                <div class="col-6 col-md-3 text-center">
                     <img class="img-fluid" src="img/logo.png" alt="Logo">
+                </div>
+                <div class="col-6 col-md text-center">
+                    <div class="btn-group">
+                        <button class="btn btn-warning btn-lg" role="button">Reserve Table</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,7 +66,7 @@
                     <div class="media-body">
                         <h2 class="mt-0">Uthappizza
                             <span class="badge badge-danger">HOT</span>
-                            <span class="badge bagde-pills badge-secondary">$4.99</span>
+                            <span class="badge badge-pill badge-secondary">$4.99</span>
                         </h2>
                         <p class="d-none d-md-block">A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>
                     </div>
@@ -77,7 +82,9 @@
             <div class="col col-sm col-md">
                 <div class="media">
                     <div class="media-body">
-                        <h2 mt-0>Weekend Grand Buffet</h2>
+                        <h2 mt-0>Weekend Grand Buffet
+                            <span class="badge badge-danger">New</span>
+                        </h2>
                         <p class="d-none d-md-block">Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </p>
                     </div>
                     <img src="img/buffet.png" alt="Buffet" class="img-thumbnail d-flex align-self-center mr-3">
@@ -100,8 +107,61 @@
                 </div>
             </div>
         </div>
+        <br>
+        <div class="row row-content">
+            <h3 class="col-12 col-sm-8 offset-2 bg-warning text-white p-2 align-self-center">Reserve a Table</h3>
+            <form class="col-12 col-sm-8 offset-2 p-2 border">    
+                <div class="row form-group">
+                    <div class="col-12 col-md-3">
+                        <label for="pax">Number of Guests</label>
+                    </div>
+                    <div class="col-12 col-md d-flex align-items-center">
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="paxCheck1" name="paxCheck">
+                            <label for="paxCheck1" class="form-check-label">1</label></div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="paxCheck2" name="paxCheck" checked>
+                            <label for="paxCheck2" class="form-check-label">2</label></div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="paxCheck3" name="paxCheck">
+                            <label for="paxCheck3" class="form-check-label">3</label></div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="paxCheck4" name="paxCheck">
+                            <label for="paxCheck4" class="form-check-label">4</label></div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="paxCheck5" name="paxCheck">
+                            <label for="paxCheck5" class="form-check-label">5</label></div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="paxCheck6" name="paxCheck">
+                            <label for="paxCheck6" class="form-check-label">6</label></div>
+                    </div>
+                </div>
+                <div class="row form-group d-flex align-items-center">
+                    <div class="col-12 col-md-3">
+                        <label for="datetime">Date and Time</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="date" name="time" id="time" placeholder="text">
+                        <input type="time" name="date" id="date" placeholder="Time">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-12 col-md-9 offset-md-3">
+                        <button class="btn btn-primary text-white" type="button">Reserve</button>
+                    </div>
+                </div>
+            
+            </form>
+            
+        </div>
+        
+    
+    
+    
     </div>
 
+    
+    <br>
     <footer class="footer">
         <div class="container">
             <div class="row">             
@@ -145,6 +205,7 @@
            </div>
         </div>
     </footer>
+
     <!-- jQuery first, then Popper.js then Bootstrap JS -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/popper.js/dist/popper.min.js"></script>
