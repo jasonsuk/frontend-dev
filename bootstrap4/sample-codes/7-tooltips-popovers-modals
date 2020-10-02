@@ -1,0 +1,24 @@
+<!-- tooltips -->
+
+<header class="jumbotron">
+    <div class="container">
+        <div class="row row-header d-flex justify-content-center align-items-center">
+            <div class="col-12 col-md-6"> 
+                <h1>Ristorante con Fusion</h1>
+                <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
+            </div >
+            <div class="col-6 col-md-3 align-self-center">
+                <img class="img-fluid" src="img/logo.png" alt="Logo">
+            </div>
+            <div class="col-6 col-md align-self-center">
+                <a class="btn btn-block nav-link btn-warning btn-lg" href="#reserve" role="button" data-toggle="tooltip" data-html="true" data-placement="bottom" title="Or Call us at <br><strong>+852 12345678</strong>">Reserve Table</a>        
+            </div>
+        </div>
+    </div>
+</header>
+
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooptip"]').tooltip();
+        });
+    </script>

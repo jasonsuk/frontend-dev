@@ -43,13 +43,12 @@
                     <h1>Ristorante con Fusion</h1>
                     <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
                 </div >
-                <div class="col-6 col-md-3 text-center">
+                <div class="col-6 col-md-3 align-self-center">
                     <img class="img-fluid" src="img/logo.png" alt="Logo">
                 </div>
-                <div class="col-6 col-md text-center">
-                    <div class="btn-group">
-                        <button class="btn btn-warning btn-lg" role="button">Reserve Table</button>
-                    </div>
+                <div class="col-6 col-md align-self-center">
+                    <a class="btn btn-block nav-link btn-warning" role="button" href="#reserve" 
+                    data-toggle="tootip" data-placement="bottom" data-html="true" title="Or Call us at <br><strong>+852 12345678</strong>">Reserve Table</a>
                 </div>
             </div>
         </div>
@@ -108,14 +107,14 @@
             </div>
         </div>
         <br>
-        <div class="row row-content">
-            <h3 class="col-12 col-sm-8 offset-2 bg-warning text-white p-2 align-self-center">Reserve a Table</h3>
-            <form class="col-12 col-sm-8 offset-2 p-2 border">    
+        <div class="row row-content" id="reserve">
+            <h3 class="col-12 col-sm-8 offset-sm-2 bg-warning text-white p-2 align-self-center">Reserve a Table</h3>
+            <form class="col-12 col-sm-8 offset-sm-2 p-2 border">    
                 <div class="row form-group">
-                    <div class="col-12 col-md-3">
+                    <div class="col-12 col-sm-3">
                         <label for="pax">Number of Guests</label>
                     </div>
-                    <div class="col-12 col-md d-flex align-items-center">
+                    <div class="col-12 col-sm d-flex align-items-center">
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" id="paxCheck1" name="paxCheck">
                             <label for="paxCheck1" class="form-check-label">1</label></div>
@@ -137,10 +136,10 @@
                     </div>
                 </div>
                 <div class="row form-group d-flex align-items-center">
-                    <div class="col-12 col-md-3">
+                    <div class="col-12 col-sm-3">
                         <label for="datetime">Date and Time</label>
                     </div>
-                    <div class="col-12 col-md-9">
+                    <div class="col-12 col-sm-9">
                         <input type="date" name="time" id="time" placeholder="text">
                         <input type="time" name="date" id="date" placeholder="Time">
                     </div>
@@ -152,15 +151,8 @@
                 </div>
             
             </form>
-            
         </div>
-        
-    
-    
-    
     </div>
-
-    
     <br>
     <footer class="footer">
         <div class="container">
@@ -203,13 +195,18 @@
                     <p>© Copyright 2018 Ristorante Con Fusion</p>
                 </div>
            </div>
-        </div>
     </footer>
 
     <!-- jQuery first, then Popper.js then Bootstrap JS -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/popper.js/dist/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
     
 </body>
 
