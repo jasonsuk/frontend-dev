@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+:root {
+	--success: #6cc551;
+	--error: #e74c3c;
+	--background: #f9fafb;
+	--background-alt: #fff;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--background);
+	font-family: 'Ubuntu', sans-serif;
+	/* putting only child centered*/
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	background-color: var(--background-alt);
+	border-radius: 5px;
+	box-shadow: 0 3px 5px 5px rgba(0, 0, 0, 0.3);
+	font-size: 1rem;
+	margin: auto;
+	width: 400px;
+	padding: 30px 40px;
+}
+
+.container h3 {
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	text-align: center;
+}
+
+.form-control {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 5px;
+}
+
+.form-control * {
+	margin-bottom: 10px;
+}
+
+.form-control label {
+	color: #777;
+}
+
+.form-control input {
+	border: 1px solid #777;
+	font-size: 1.1rem;
+}
+
+.form-control input:focus {
+	outline: 0;
+	border: 1.5px solid #695d7d;
+}
+
+/* Interactive when succeed or fail */
+.form-control.success input {
+	border-color: var(--success);
+}
+
+.form-control.error input {
+	border-color: var(--error);
+}
+
+.form-control small {
+	color: var(--error);
+	visibility: hidden;
+	/* display: none */
+}
+
+.form-control.error small {
+	visibility: visible;
+}
+
+form button {
+	cursor: pointer;
+	background-color: #3498db;
+	border: 2px solid #3498db;
+	border-radius: 3px;
+	color: #ffff;
+	font-size: 1.2rem;
+	width: 100%;
+	padding: 10px;
+	margin: 15px 0;
+}
+
+/* Media query for mobile screen  */
+@media only screen and (max-width: 576px) {
+	.container {
+		margin: 0 20%;
+	}
+}
