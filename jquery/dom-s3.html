@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery | Selectors</title>
+    <!-- Load jQuery Package -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-size: 1rem;
+            font-family: sans-serif, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial;
+            background: #f4f4f4;
+            line-height: 1.5em;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px #000 ridge;
+        }
+        #container {
+            margin: 25px 10%;
+            padding: 15px;
+        }
+        .myClass {
+            color: #f5c5d8;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>jQuery DOM Manipulation</h1>
+    </header>
+    <div id="container">
+        <button id="btn1">Button 1</button>
+        <p class="para1">This is a paragraph</p>
+        <p class="para2">This is another paragraph</p>
+        <div id="myDiv"></div>
+    </div>
+    
+   
+    <!-- jQuery inside <script>-->
+    <script>
+        $(document).ready(function(){
+            
+            //////////////////////////////////////////////////////////
+            // // adding css
+            // $('p.para1').css({color:'white',background:'#000'});
+
+            // // adding class
+            // $('p.para2').addClass('myClass'); // removeClass
+
+            // // adding events
+            // $('#btn1').on('click', function(){
+            //     $('p.para2').toggleClass('myClass');
+            // });
+
+            // // create HTML elements/tags
+            // // $('#myDiv').text('Hello Jquery!');
+            // $('#myDiv').html('<h3>Hello Jquery</h3>');
+            // alert($('#myDiv').text());
+
+            //////////////////////////////////////////////////////////
+            // // create + append elements
+            let newList = [
+                $('<ul/>', {'id':'list'}).append([
+                    $('<li/>',{class:'list-item', text:'item1'}),
+                    $('<li/>',{class:'list-item', text:'item2'}),
+                    $('<li/>',{class:'list-item', text:'item3'}),
+                    $('<li/>',{class:'list-item', text:'item4'}),
+                ])
+            ]
+            $('#container').append(newList); // no $sign with ''
+            // $('#list').prepend('<li/>I go first'); // no $sign
+            // $('<li/>', {text: 'I go last'}).appendTo('#list');
+            
+            // // to prevent elements put inside
+            // $('ul').before($('<h4/>', {text:'I go before <ul>'}));
+            // $('ul').after($('<h4/>', {text:'I go after <ul>'}));
+            
+            // // remove text or elements
+            // $('ul').empty();
+            // $('ul').detach();
+
+            // // add attributes
+            $('<a/>', {href:'http://google.com', text:'Google'}).appendTo($('#container'))
+            $('a').attr('target','_blank');
+            // alert($('a').attr('href'));
+            // $('a').removeAttr('target');
+
+            // $('p').wrap('<h1>'); // each p wrapped by h1
+            // $('p').wrapAll('<h1>') // all p wrapped by one h1
+
+            //////////////////////////////////////////////////////////
+            
+            // Enter items in input bar
+            $('ul').before($('<input/>',{type:'text', id:'newItem'}));
+            $('#newItem').keyup(function(e){
+                let code = e.which;
+                if(code === 13) {
+                    e.preventDefault();
+                    $('ul').append('<li>'+e.target.value+'</li>')
+                }
+            })
+
+            //////////////////////////////////////////////////////////
+
+            // Array - Iteration
+            $('<ul/>', {class:'list2'}).appendTo($('#container'));
+            $('.list2').attr('id','users'); 
+
+            let myArr = ['Jason', 'Nate', 'Jose', 'Sandy'];
+            $.each(myArr, function(i, val){
+                //console.log(i, val);
+                $('#users').append('<li>'+val+'</li>');
+            })
+
+            let newArray = $('ul#list .list-item').toArray();
+            $.each(newArray, (i, val)=>{
+                console.log(val.innerHTML);
+            })
+
+        })
+    </script>
+</body>
+</html>
