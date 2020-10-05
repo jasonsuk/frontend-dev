@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #666;
+	font-family: 'Ubuntu', sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+h1 {
+	text-align: center;
+	color: #fff;
+}
+
+.video-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 90%;
+	height: 300px;
+}
+
+.video-container .screen {
+	width: 100%;
+	border: 1px solid #fff;
+	background-color: #000 !important;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+}
+
+.controls {
+	padding: 10px;
+	width: 100%;
+	height: 50px;
+	background-color: #333;
+	color: #fff;
+	cursor: pointer;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.controls * {
+	padding: 0;
+	margin: 0 5px;
+}
+
+.controls .btn {
+	background-color: transparent;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+
+.btn .fa-play {
+	color: #28a745;
+}
+
+.btn .fa-stop {
+	color: #dc3545;
+	margin-right: 15px;
+}
+
+.btn .fa-pause {
+	color: #fff;
+}
+
+.controls .timestamp {
+	color: #fff;
+	font-weight: 700;
+	margin-left: 15px;
+}
+
+@media screen and (min-width: 768px) {
+	.video-container {
+		width: 65%;
+	}
+}
