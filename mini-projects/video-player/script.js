@@ -4,23 +4,20 @@ const stop = document.getElementById('stop');
 const progress = document.getElementById('progress');
 const timestamp = document.getElementById('timestamp');
 
-// When video is stopped
 function stopVideo() {
 	video.currentTime = 0;
 	video.pause();
 }
 
-// Change Icon to Play/Pause
-function updatePlayIcon() {
+function changePlayIcon() {
 	if (video.paused) {
-		play.innerHTML = '<i class="fa fa-pause fa-2x"></i>';
-	} else {
 		play.innerHTML = '<i class="fa fa-play fa-2x"></i>';
+	} else {
+		play.innerHTML = '<i class="fa fa-pause fa-2x"></i>';
 	}
 }
 
-// Toggle Video Play/Pause
-function toggleVideostatus() {
+function toggleVideoScreen() {
 	if (video.paused) {
 		video.play();
 	} else {
@@ -28,11 +25,13 @@ function toggleVideostatus() {
 	}
 }
 
-// Event listeners
-video.addEventListener('click', toggleVideostatus);
-video.addEventListener('play', updatePlayIcon);
-video.addEventListener('pause', updatePlayIcon);
-// video.addEventListener('timeupdate', updateProgress);
+video.addEventListener('click', toggleVideoScreen);
+video.addEventListener('play', changePlayIcon);
+video.addEventListener('pause', changePlayIcon);
+video.addEventListener('timeupdate', updateProgress);
+// timeupdate event is fired when the time indicated by
+// the currentTime attribute has been updated
 
-play.addEventListener('click', toggleVideostatus);
+play.addEventListener('click', toggleVideoScreen);
 stop.addEventListener('click', stopVideo);
+progress.addEventListener('change', setVideoProgress);
