@@ -5,7 +5,7 @@ const amountTwo = document.getElementById('amount-two');
 const swapBtn = document.getElementById('swap');
 const rateText = document.getElementById('rate');
 
-const apiKey = '37a76d35abc5eaac2216a383';
+const apiKey = config.MY_KEY;
 const baseUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/`;
 
 function getExchangeRate() {
