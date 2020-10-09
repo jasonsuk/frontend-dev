@@ -1,38 +1,81 @@
-const input = document.getElementById('input');
+const inputCountry = document.getElementById('inputCountry');
 const message = document.getElementById('message');
 const region = document.getElementById('region');
 const subregion = document.getElementById('subregion');
 const sunset = document.getElementById('sunset');
 const sunrise = document.getElementById('sunrise');
-const apiUrl = 'https://restcountries.eu/rest/v2/all';
+const confirm = document.getElementById('confirm');
 
-function getCountryData() {
-	const countryList = []
-	fetch(apiUrl)
-		.then((res) => res.json())
-		.then((data) => {
-			data.forEach((country) => {
-				const countryName = String(country.name).toLocaleLowerCase();
-				const inputName = String(input.value).toLocaleLowerCase()
+let data = [];
 
-				if (countryName.includes(inputName)) {
+async function fetchSunData(latitude, longitude, date = 'today') {
+	let lat = parseFloat(latitude);
+	let lng = parseFloat(longitude);
+	const sunUrl = `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=${date}`
 
-					message.innerHTML = country.name;
-					region.innerHTML = country.region;
-					subregion.innerHTML = country.subregion;
-				}
-			})
-		}).catch(error => console.log('Failed to fetch data...'))
+	const response = await fetch(sunUrl);
+	const data = await response.json();
+
+	// console.log(data.results);
+	sunset.innerHTML = data.results.sunset;
+	sunrise.innerHTML = data.results.sunrise;
 }
 
-function validateInput() {
-	if (!input.value.length > 0 || input.value === 'unidentified') {
-		message.innerHTML = 'Hi...! Feel free to play with country name here'
-	}
+async function fetchCountryData() {
+	const countryUrl = 'https://restcountries.eu/rest/v2/all';
+	const response = await fetch(countryUrl);
+	const data = await response.json();
+
+	data.map((country) => {
+		const countryObj = {
+			name: country.name,
+			region: country.region,
+			subregion: country.subregion,
+			lat: country.latlng[0],
+			lng: country.latlng[1]
+		}
+		addData(countryObj)
+	})
 }
 
-document.body.addEventListener('mouseover', validateInput);
-input.addEventListener('input', (e) => {
-	getCountryData();
-	validateInput();
-})
+function addData(obj) {
+	data.push(obj);
+}
+
+function findCountry(embededData = data) {
+
+	clearResults();
+
+	data.forEach((country) => {
+		const name = String(country.name).toLowerCase();
+		const input = String(inputCountry.value).toLowerCase();
+		if (input.length > 2 && name.includes(input)) {
+			message.innerHTML = country.name;
+		}
+	})
+}
+
+function populateData() {
+	data.map((country) => {
+		const name = String(country.name).toLowerCase();
+		const bestMatch = String(message.innerHTML).toLowerCase();
+
+		if (name === bestMatch) {
+			region.innerHTML = country.region;
+			subregion.innerHTML = country.subregion;
+			// console.log(country.lat, country.lng);
+			fetchSunData(country.lat, country.lng);
+		}
+	})
+}
+
+function clearResults() {
+	region.innerHTML = '';
+	subregion.innerHTML = '';
+	sunrise.innerHTML = '';
+	sunset.innerHTML = '';
+}
+
+window.addEventListener('load', fetchCountryData);
+inputCountry.addEventListener('input', findCountry);
+confirm.addEventListener('click', populateData);
