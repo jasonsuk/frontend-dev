@@ -1,10 +1,10 @@
 const main = document.getElementById('main');
-const clear = document.getElementById('clear');
-const addUser = document.getElementById('add-user');
-const double = document.getElementById('double');
-const showMillionaires = document.getElementById('show-millionaires');
-const sort = document.getElementById('sort');
-const calculateWealth = document.getElementById('calculate-wealth');
+const clearBtn = document.getElementById('clear');
+const addUserBtn = document.getElementById('add-user');
+const doubleBtn = document.getElementById('double');
+const showMillionairesBtn = document.getElementById('show-millionaires');
+const sortBtn = document.getElementById('sortBtn');
+const calculateWealthBtn = document.getElementById('calculate-wealth');
 
 // WHEN SAVING DATA FETCHED FROM API
 
@@ -27,7 +27,7 @@ async function getRandomUser() {
     addData(randomUser);
 }
 
-// ADD DATA APPLYING DOM ARRAY METHOD : FOR EACH
+// ADD DATA | DOM ARRAY METHOD : FOR EACH
 function addData(obj) {
     // ADD AND SAVE USER IN ARRAY
     data.push(obj);
@@ -55,7 +55,7 @@ function formatMoney(money) {
     return '$ ' + money.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
 
-// DOUBLE MONEY APPLYING DOM ARRAY METHOD : MAP
+// DOUBLE MONEY | DOM ARRAY METHOD : MAP
 // ACTIVATION WILL BE VISIBLE WHEN THERE IS DATA PRESENT
 function doubleMoney() {
     data = data.map(person => {
@@ -65,12 +65,56 @@ function doubleMoney() {
     populateData(data)
 }
 
+// SORT BY WEALTH | DOM ARRAY METHOD : SORT
+let order = false;
+function sortWealth() {
+    order = !order;
+    data = data.sort((a, b) => {
+        let boolAsc = (a.wealth - b.wealth);
+        let boolDesc = (b.wealth - a.wealth);
+        return (order) ? boolDesc : boolAsc;
+    })
+    populateData(data);
+
+}
+
+// SHOWING RESULTS BASED ON RULE | DOM ARRAY METHOD : FILTER
+function showMillionaires() {
+    data = data.filter((person) => {
+        return Number(person.wealth) > 1000000;
+    })
+    populateData(data);
+}
+
+// RETURN SINGLE RESULT FROM ARRAY | DOM ARRAY METHOD : REDUCE
+function calculateWealth() {
+    const sum = data.reduce((acc, person) => {
+        return acc += person.wealth;
+    }, 0)
+
+    const wealthElement = document.createElement('div');
+    wealthElement.innerHTML = `<h3><strong>Total wealth: </strong>${formatMoney(sum)}</h3>`;
+
+    const wealthElementAttr = `
+        background-color: #FEFEE3;
+        margin-top: 5px;
+        padding: 3px 0px;
+        font-weight: 700;
+    `
+    wealthElement.style.cssText = wealthElementAttr;
+    main.appendChild(wealthElement);
+}
+
+
 // CLEAR ALL DATA
 function clearUI() {
     return location.reload();
 }
 
+addUserBtn.addEventListener('click', getRandomUser);
+doubleBtn.addEventListener('click', doubleMoney);
+sortBtn.addEventListener('click', sortWealth);
+showMillionairesBtn.addEventListener('click', showMillionaires);
+calculateWealthBtn.addEventListener('click', calculateWealth);
 
-addUser.addEventListener('click', getRandomUser);
-double.addEventListener('click', doubleMoney);
-clear.addEventListener('click', clearUI);
+clearBtn.addEventListener('click', clearUI);
