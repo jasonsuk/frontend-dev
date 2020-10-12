@@ -6,20 +6,10 @@ const sunset = document.getElementById('sunset');
 const sunrise = document.getElementById('sunrise');
 const confirm = document.getElementById('confirm');
 
+
+// FETCH COUNTRY DATA AND SAVE IT AS ARRAY
+
 let data = [];
-
-async function fetchSunData(latitude, longitude, date = 'today') {
-	let lat = parseFloat(latitude);
-	let lng = parseFloat(longitude);
-	const sunUrl = `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=${date}`
-
-	const response = await fetch(sunUrl);
-	const data = await response.json();
-
-	// console.log(data.results);
-	sunset.innerHTML = data.results.sunset;
-	sunrise.innerHTML = data.results.sunrise;
-}
 
 async function fetchCountryData() {
 	const countryUrl = 'https://restcountries.eu/rest/v2/all';
@@ -42,6 +32,22 @@ function addData(obj) {
 	data.push(obj);
 }
 
+// FETCH SUNRISE / SUNSET DATA
+async function fetchSunData(latitude, longitude, date = 'today') {
+	let lat = parseFloat(latitude);
+	let lng = parseFloat(longitude);
+	const sunUrl = `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=${date}`
+
+	const response = await fetch(sunUrl);
+	const data = await response.json();
+
+	// console.log(data.results);
+	// display sunset/sunrise time in UTD -> need to convert
+	sunset.innerHTML = data.results.sunset;
+	sunrise.innerHTML = data.results.sunrise;
+}
+
+// INTERACTIVE TO SHOW A COUNTRY THAT BEST MATCHES
 function findCountry(embededData = data) {
 
 	clearResults();
@@ -55,6 +61,14 @@ function findCountry(embededData = data) {
 	})
 }
 
+function clearResults() {
+	region.innerHTML = '';
+	subregion.innerHTML = '';
+	sunrise.innerHTML = '';
+	sunset.innerHTML = '';
+}
+
+// DISPLAY RESULTS THAT MATCH WITH A COUNTRY
 function populateData() {
 	data.map((country) => {
 		const name = String(country.name).toLowerCase();
@@ -69,13 +83,14 @@ function populateData() {
 	})
 }
 
-function clearResults() {
-	region.innerHTML = '';
-	subregion.innerHTML = '';
-	sunrise.innerHTML = '';
-	sunset.innerHTML = '';
-}
 
+// EVENTS
+
+// fetch and load data when window opens
 window.addEventListener('load', fetchCountryData);
+
+// interactive for user to see best match country
 inputCountry.addEventListener('input', findCountry);
+
+// display results when user confirms the country
 confirm.addEventListener('click', populateData);
