@@ -1,0 +1,197 @@
+/////////////////////////////////////////////////////////////////////
+//    Scripts from style.css are all compiled here in scss
+/////////////////////////////////////////////////////////////////////
+
+// SASS VARIABLES
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-grey-dark: #777;
+$color-white: #fff;
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5% 
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: $color-grey-dark;
+    padding: 3rem;
+
+    /* INHERIT THIS PROPERTY FOR ALL*/
+    box-sizing: border-box;
+}
+
+.header {
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-primary-light, 0.8), 
+        rgba($color-primary-light, 0.8)), 
+        url(../../img/hero.jpg);
+    background-size: cover;
+    background-position: top;
+
+    clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+    
+    /* TO HAVE CHILDREN POSITION ABSOLUTE TO THEIR PARENT */
+    position: relative;
+}
+
+.header__logo {
+    /* STICK TO .header parent REGARDLESS OF SCREEN SIZE*/
+    position: absolute;
+    top: 5rem;
+    left: 5rem;
+    height: 3.5rem;
+    color: $color-white;
+}
+
+.header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    backface-visibility: none;
+    margin-bottom: 7rem;
+}
+
+.heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 2.5rem;
+
+    /* APPLYING ANIMATIONS SET AT @KEYFRAMES */
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+.heading-primary--sub {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1.65rem;
+
+    animation: moveInLeft 1s ease-out;
+}
+
+.btn:link,
+.btn:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+
+    /* FOR ::after */
+    position: relative;
+}   
+
+.btn:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+}
+
+.btn:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+}
+
+.btn--white{
+    background-color: $color-white;
+    color: $color-grey-dark;
+}
+
+.btn::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 10rem;
+    display: inline-block;
+    /* HIDE BEHIND THE MAIN BUTTON */
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+
+    /* FOR .btn:hover::after */
+    transition: all 0.4s;
+}
+
+.btn--white::after {
+    background-color: $color-white;
+}
+
+.btn:hover::after {
+    /* DON'T FORGET TO INCLUDE transition! */
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn--animated {
+    animation: moveInTop 0.7s ease-out;
+    /* APPLY ANIMATION (moveInTop) at 0% WHEN START*/
+    animation-fill-mode: backwards;
+}
+
+
+
+/* PUTTING ANIMATIONS WITH @KEYFRAMES FUNCTION + ANIMATION */
+@keyframes moveInRight {
+    0% {
+        transform: translateX(-10rem);
+        opacity: 0;
+    }
+    80% {
+        transform: translateX(1rem);
+    }
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes moveInLeft {
+    0% {
+        transform: translateX(10rem);
+        opacity: 0;
+    }
+    80% {
+        transform: translateX(-1rem);
+    }
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes moveInTop {
+    0% {
+        transform: translateY(1rem);
+    }
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
