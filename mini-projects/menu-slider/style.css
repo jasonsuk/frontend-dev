@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root {
+    --model-duration: 1s;
+    --color-primary : #2C2A4A;
+    --color-seconary : #4F518C;
+    --color-tertiary : #907AD6;
+    --color-background: #f4f4f4
+    /* 
+    pale-spring-bud : #DABFFF;
+     */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    background-color: var(--color-background);
+}
+
+.nav-container {
+    background-color: var(--color-primary);
+    border: 0.1rem solid var(--color-seconary);
+    position: fixed;
+    width: 20rem;
+    height: 100vh;
+    transform: translate(-100%);
+
+    color: var(--color-background);
+}
+
+.nav-logo {
+    margin: 3rem 5rem;
+}
+
+.nav-logo img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+}
+
+.nav-list {
+    list-style-type: none;
+    
+}
+
+.nav-list li {
+    padding: 2rem 3rem;
+    border-bottom: 0.1rem solid rgba(200, 200, 200, 0.2);
+}
+
+.nav-list li:first-of-type {
+    border-top: 0.1rem solid rgba(200, 200, 200, 0.2);
+}
+
+.nav-list li a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--color-background);
+}
+
+.header-container {
+    padding: 2rem;
+    font-size: 1.5rem;
+    background-color: var(--color-primary);
+
+    position: relative;
+}
+
+.header-box {
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-background);
+}
+
+.header-box * {
+    padding: 2rem 0;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    cursor: pointer;
+    border: 0;
+    border-radius: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    color: var(--color-background);
+    background-color: var(--color-seconary);
+    
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn-toggle {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    font-size: 1.5rem;
+}
+
+.btn-signup {
+    margin-top: 1.5rem;
+    padding: 1.5rem 3rem;
+    font-size: 2rem;
+}
+
+

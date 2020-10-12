@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Menu Slider</title>
+</head>
+
+<body>
+    <!-- NAV COMES FIRST BEFORE HEADER TO BE POSITIONED LEFT -->
+    <nav class="nav-container" id="nav">
+        <div class="nav-logo">
+            <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="user">
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#">Home</a></li>
+            <li class="nav-item"><a href="#">Porfolio</a></li>
+            <li class="nav-item"><a href="#">Blog</a></li>
+            <li class="nav-item"><a href="#">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <header class="header-container">
+        <!-- FOR NAV TOGGLE -->
+        <button id="toggle" class="btn btn-toggle">
+            <i class="fa fa-bars fa-2x"></i>
+        </button>
+        <div class="header-box">
+            <h1>My Landing Page</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel distinctio vitae aut non cupiditate, eos
+                tempore ad itaque fugit iure amet alias debitis qui perspiciatis sequi accusantium veritatis ex optio.
+            </p>
+            <button id="sign-up" class="btn btn-signup">Sign up</button>
+        </div>
+    </header>
+
+    <div class="section-container">
+        <section class="about">
+            <h2>What is this landing page about?</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, cumque voluptate. Enim aut eos temporibus,
+                reprehenderit pariatur cupiditate dolor esse facere debitis aspernatur molestias nesciunt odio tenetur
+                omnis
+                unde odit.</p>
+        </section>
+        <section class="tellMe">
+            <h2>Tell Me More</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, cumque voluptate. Enim aut eos temporibus,
+                reprehenderit pariatur cupiditate dolor esse facere debitis aspernatur molestias nesciunt odio tenetur
+                omnis
+                unde odit.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem corrupti laborum optio facere vero
+                minima,
+                ipsa itaque dicta in! Doloremque velit officiis eos quas dolorum expedita facilis eligendi, asperiores
+                mollitia.</p>
+        </section>
+        <section class="benefits">
+            <h2>Benefits</h2>
+            <ul>
+                <li>Lifttime Access</li>
+                <li>30 Day Money Back</li>
+                <li>Tailored Custome Support</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique accusamus perferendis natus autem est
+                quod, molestias soluta commodi minus expedita earum dicta iure accusantium quisquam sint error culpa rem
+                cupiditate harum tempora ipsam enim laboriosam. Repellat illo quas obcaecati nulla recusandae nemo optio
+                necessitatibus consequatur earum aspernatur minus nostrum, assumenda facere molestiae voluptas fugiat
+                adipisci itaque. Expedita ut eveniet ad quae incidunt fugiat a quibusdam doloremque placeat? Dolore,
+                placeat eaque.</p>
+        </section>
+    </div>
+
+    <!-- MODAL WHEN SIGN UP BUTTON CLICKED -->
+    <div class="model-container" id="modal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Sign Up</h3>
+                <button class="close-btn" id="close-btn">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <p>Register with us to get offers, support and more</p>
+                <form class="model-form">
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="input-item" placeholder="Enter Name">
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="text" id="email" class="input-item" placeholder="Enter Email">
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="text" id="password" class="input-item" placeholder="Enter password">
+                    </div>
+                    <div>
+                        <label for="password2">Confirm Password</label>
+                        <input type="text" id="password2" class="input-item" placeholder="Confirm Password">
+                    </div>
+                    <div>
+                        <input type="submit" id="Submit" class="btn btn-submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
