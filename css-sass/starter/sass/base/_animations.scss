@@ -1,0 +1,38 @@
+/* PUTTING ANIMATIONS WITH @KEYFRAMES FUNCTION + ANIMATION */
+@keyframes moveInRight {
+    0% {
+        transform: translateX(-10rem);
+        opacity: 0;
+    }
+    80% {
+        transform: translateX(1rem);
+    }
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes moveInLeft {
+    0% {
+        transform: translateX(10rem);
+        opacity: 0;
+    }
+    80% {
+        transform: translateX(-1rem);
+    }
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes moveInTop {
+    0% {
+        transform: translateY(1rem);
+    }
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}

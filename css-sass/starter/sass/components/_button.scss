@@ -1,0 +1,62 @@
+
+.btn {
+
+    &--white{
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    &--animated {
+    animation: moveInTop 0.7s ease-out;
+    /* APPLY ANIMATION (moveInTop) at 0% WHEN START*/
+    animation-fill-mode: backwards;
+    }    
+
+    &:link,
+    &:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+
+    /* FOR ::after */
+    position: relative;
+    }
+    
+    &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-black,0.2);
+        &::after {
+            /* DON'T FORGET TO INCLUDE transition! */
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black,0.2);
+    }
+
+    &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 10rem;
+    display: inline-block;
+    /* HIDE BEHIND THE MAIN BUTTON */
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+
+    /* FOR BUTTON&:hover::after */
+    transition: all 0.4s;
+    }
+}
