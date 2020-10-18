@@ -1,4 +1,4 @@
-# Reference 
+# Reference
 
 ## Building Custom Grid with Floats using SASS(SCSS)
 
