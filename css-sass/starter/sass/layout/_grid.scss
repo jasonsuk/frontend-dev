@@ -1,7 +1,7 @@
 // PUT VARIABLES HERE 
 $grid-width: 114rem;
 $gutter-vetical: 8rem;
-$gutter-horizonal: 6rem;
+$gutter-horizonal: 4rem;
 
 // PUT SASS MIXIN HERE
 
@@ -16,20 +16,6 @@ $gutter-horizonal: 6rem;
 }
 
 //////////////////////////////////////////////////////////////////////
-* {
-    margin: 0;
-    box-sizing: inherit;
-}
-
-html {
-    font-size: 62.5%; // 1 rem;
-}
-
-body {
-    box-sizing: border-box;
-    font-size: 1.5rem;
-}
-
 .row {
     max-width: $grid-width; // will use 100vw when width lt 114rem 
     // background-color: #eee;
