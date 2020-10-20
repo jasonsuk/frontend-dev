@@ -76,18 +76,18 @@ p {
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  
 }
 
 /* important to give width and height! */
 .letter {
   border-bottom: 3px solid #CA6680;
   font-size: 30px;
-  margin: 0 5px;
+  margin: 0 2px;
+  padding: 5px 15px;
   height: 50px; 
-  width: 20px;
+  width: 50px;
 }
 
 .message-container {
@@ -97,7 +97,7 @@ p {
   bottom: 0;
   right: 0;
   background-color: rgba(0,0,0,0.3);
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
   display: none;
@@ -105,15 +105,17 @@ p {
 
 .message-box {
   text-align: center;
-  width: 250px;
-  height: 250px;
+  padding: 25px;
+  width: 350px;
+  height: 350px;
   border-radius: 10px;
   /* border */
   background-color: #CA6680;
 }
 
 .message-box h2 {
-  margin: 55px auto;
+  margin: 75px auto;
+  padding: 0 15px;
 }
 
 .message-box button {
