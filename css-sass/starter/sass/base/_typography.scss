@@ -35,6 +35,27 @@ body {
     }
 }
 
+.heading-secondary {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    
+    // gradient effect to text
+    display: inline-block;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    -webkit-background-clip: text;
+    color: transparent;
+
+    transition: all 0.1s;
+
+    // animation to text when hover
+    &:hover {
+        transform: skewX(10deg) skewY(2deg) scale(1.1);
+        text-shadow: $default-box-shadow;
+    }
+}
+
 .heading-tertiary {
     font-size: $default-font-size;
     font-weight: 700;
