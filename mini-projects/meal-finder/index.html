@@ -12,21 +12,24 @@
     <div class="container-main">
         <h1>Meal Finder</h1>
         <div class="container-search flex">
-            <form id="search" class="flex">
+            <form id="searchForm" class="flex">
                 <input type="text" id="searchInput" placeholder="Search for meals or keywords">
-                <button class="btn btn-search" id="searchBtn">
+                <button class="btn btn-search">
                     <i class="fas fa-search"></i>
                 </button>
             </form>
-            <button class="btn btn-shuffle" id="suffleBtn">
+            <button class="btn btn-shuffle" id="shuffleBtn">
                 <i class="fas fa-random"></i>
             </button>
         </div>
+
+
+        <div id="result-heading"></div>
+        <div id="meals" class="meals"></div>
+        <div id="single-meal"></div>
+    
     </div>
 
-    <div id="result-heading"></div>
-    <div id="meals" class="meals"></div>
-    <div id="single-meal"></div>
 
     <script src="script.js"></script>
 </body>
