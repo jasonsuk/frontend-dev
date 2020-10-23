@@ -1,13 +1,13 @@
 .card {
     position: relative;
-    height: 50rem;
+    height: 45rem;
 
     // Visually converge towards the viewer
     // perspective: 150rem;
     // -moz-perspective: 150rem;
     
     &__side {
-        height: 50rem;
+        height: 45rem;
         width: 100%;
         position: absolute;
         backface-visibility: hidden;
@@ -24,21 +24,11 @@
             // background-color: $color-black;
             transform: rotateY(180deg);
 
-            &-1 {
-                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
-            }
-
-            &-2 {
-                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
-            }
-
-            &-3 {
-                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
-            }
+            &-1 {background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);}
+            &-2 {background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);}
+            &-3 {background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);}
         }
-        
     }
-
     // Rotate the entire card 
     &:hover &__side--front {
         transform: rotateY(-180deg);
@@ -49,55 +39,38 @@
 
     // Card contents
     &__image {
-        height: 45%;
+        height: 40%;
         background-size: cover;
         background-blend-mode: screen;
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 
-        &--1 {
-            background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.8)), url(../../img/nat-5.jpg);
-        }
-
-        &--2 {
-            background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../../img/nat-6.jpg);
-        }
-
-        &--3 {
-            background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, 0.8), rgba($color-tertiary-dark, 0.8)), url(../../img/nat-7.jpg);
-        }
+        &--1 {background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.8)), url(../../img/nat-5.jpg);}
+        &--2 {background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../../img/nat-6.jpg);}
+        &--3 {background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, 0.8), rgba($color-tertiary-dark, 0.8)), url(../../img/nat-7.jpg);}
     }
 
     &__heading {
         position: absolute;
-        top: 4rem;
-        right: 2rem;
+        top: 2.5rem;
+        right: 1.5rem;
         color: $color-white;
         font-size: 3.5rem;
         font-weight: 300;
         text-align: right;
         text-transform: uppercase;
-        width: 70%; 
+        width: 80%; 
         
     }
 
     &__heading-span {
-        padding: 0.5rem 1rem;
+        padding: 0.5rem .5rem;
         -webkit-box-decoration-break: clone;
         box-decoration-break: clone;
 
-        &--1 {
-            background-image: linear-gradient(to right, $color-secondary-light, $color-secondary-dark);
-        
-        }
-
-        &--2 {
-            background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
-        }
-
-        &--3 {
-            background-image: linear-gradient(to right, $color-tertiary-light, $color-tertiary-dark);
-        }
+        &--1 {background-image: linear-gradient(to right, $color-secondary-light, $color-secondary-dark);}
+        &--2 {background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);}
+        &--3 {background-image: linear-gradient(to right, $color-tertiary-light, $color-tertiary-dark);}
     }
 
     &__details {
@@ -105,18 +78,39 @@
         ul {
             list-style-type: none;
             text-align: center;
-            padding: 1.5rem 1rem;    
+            padding: 1rem 1rem;    
             margin: 0 auto;
             width: 75%;
             
             li{
                 padding: 1rem;
-
-                &:not(:last-child) {
-                    border-bottom: 1px ridge;
-                }
+                &:not(:last-child) {border-bottom: 1px ridge;}
             }
-            
         }
     }   
+
+    &__cta {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10rem;
+        width: 90%;
+        text-align: center;
+    }
+
+    &__price-text {
+        margin-bottom: 1rem;
+        color: $color-white;
+        font-size: 1.5rem;
+        font-weight: 400;
+    }   
+
+    &__price-value  {
+        margin-top: 0rem;
+        margin-bottom: 1rem;
+        color: $color-white;
+        font-size: 5rem;
+        font-weight: 100;
+    }
 }
