@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;300;400;500;700;900&display=swap');
+
+/* MAIN */
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    min-height: 100vh;
+    box-sizing: border-box;
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 1.6rem;
+    color: #0d0221;
+    /* BACKGROUND */
+    background-color: #f4f4f4;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238783d1' fill-opacity='0.10'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    /* DISPLAY */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 1rem auto;
+    width: 80%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+/* UTILITIES */
+.u-flex-row {
+    display: flex;
+    align-items: center;
+}
+
+/* HEADING */
+.header {
+    transition: all 0.4s;
+    margin: 1.5rem auto;
+    font-size: 1.2rem;
+}
+
+.heading__primary:hover {
+    transform: skewX(10deg) scale(1.1);
+    text-shadow: 0 1.5rem 4rem rgba(13, 2, 33, 0.4);
+}
+
+h4 {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+/* SECTION */
+.section-main {
+    width: 45rem;
+}
+
+.section-main > * {
+    padding: 1rem;
+}
+
+/* BOX-BALANCE */
+.box-balance > *:not(:last-child) {
+    margin: 0;
+}
+
+.balance-value {
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+/* BOX-INC-EXP */
+.box-inc-exp {
+    margin: 1rem;
+    padding: 2.5rem 0rem;
+    box-shadow: 0 0.1rem 0.3rem rgba(13, 2, 33, 0.2);
+    background-color: #fff;
+    font-size: 1.5rem;
+}
+
+.inc-tracker {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    margin: 0;
+    /* background-color: #000; */
+    border-right: 1px ridge rgba(13, 2, 33, 0.2);
+}
+
+.exp-tracker {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+}
+
+.money {
+    margin-top: 0.7rem;
+}
+
+.plus {
+    color: #2ecc71;
+}
+
+.minus {
+    color: #c0392b;
+}
+
+/* BOX-HISTORY */
+
+.box-history h4 {
+    border-bottom: 0.1rem solid rgba(13, 2, 33, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.list-history {
+    margin: 1rem auto;
+    list-style: none;
+}
+
+.list-history li {
+    margin: 0.5rem auto;
+    padding: 0.8rem 1rem;
+    box-shadow: 0 0.1rem 0.3rem rgba(13, 2, 33, 0.2);
+    background-color: #fff;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.list-history .minus {
+    border-right: 0.5rem solid #c0392b;
+}
+
+.list-history .plus {
+    border-right: 0.5rem solid #2ecc71;
+}
+
+.btn-delete {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    left: -2.1rem;
+    padding: 0.3rem;
+    background: #c0392b;
+    border: none;
+    border-radius: 0.3rem;
+    color: #fff;
+    opacity: 1;
+    transition: all 0.1s;
+}
+
+.btn-delete:hover {
+    opacity: 1;
+}
+
+.btn-delete:focus {
+    outline: none;
+}
+
+.btn-delete:active {
+    transform: scale(0.8);
+}
+
+/* BOX-TRANSACTION */
+
+.box-transaction h4 {
+    border-bottom: 0.1rem solid rgba(13, 2, 33, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.box-transaction form,
+.form-control {
+    margin: 1rem auto;
+}
+
+.form-control label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.form-control input {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    height: 3rem;
+    border: 1px ridge rgba(13, 2, 33, 0.2);
+}
+
+.btn-input {
+    width: 100%;
+    font-size: 1.6rem;
+    color: #fff;
+    background: #3581b8;
+    margin: 1rem auto;
+    padding: 1rem;
+    border: 1px ridge rgba(13, 2, 33, 0.2);
+    transition: all 0.4s;
+    box-shadow: 0 0.3rem 0.5rem rgba(13, 2, 33, 0.4);
+}
+
+.btn-input:focus {
+    outline: none;
+}
+
+.btn-input:active {
+    transform: translateY(0.3rem);
+    box-shadow: 0 0.1rem 0.2rem rgba(13, 2, 33, 0.2);
+}
