@@ -38,7 +38,7 @@ body {
 /* HEADING */
 .header {
     transition: all 0.4s;
-    margin: 1.5rem auto;
+    margin: 3.5rem auto;
     font-size: 1.2rem;
 }
 
@@ -53,12 +53,24 @@ h4 {
 }
 
 /* SECTION */
-.section-main {
-    width: 45rem;
+.main {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
 }
 
-.section-main > * {
+.main > * {
     padding: 1rem;
+}
+
+/* SECTIONS */
+.section-main {
+    width: 30rem;
+}
+
+.section-history {
+    width: 30rem;
+    /* background-color: rgba(53, 129, 184, 0.1); */
 }
 
 /* BOX-BALANCE */
@@ -73,7 +85,7 @@ h4 {
 
 /* BOX-INC-EXP */
 .box-inc-exp {
-    margin: 1rem;
+    margin: 2.5rem 0.5rem;
     padding: 2.5rem 0rem;
     box-shadow: 0 0.1rem 0.3rem rgba(13, 2, 33, 0.2);
     background-color: #fff;
@@ -107,6 +119,52 @@ h4 {
     color: #c0392b;
 }
 
+/* BOX-TRANSACTION */
+
+.box-transaction h4 {
+    border-bottom: 0.1rem solid rgba(13, 2, 33, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.box-transaction form,
+.form-control {
+    margin: 1.5rem auto;
+}
+
+.form-control label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.form-control input {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    height: 3rem;
+    border: 1px ridge rgba(13, 2, 33, 0.2);
+}
+
+.btn-input {
+    width: 100%;
+    font-size: 1.6rem;
+    color: #fff;
+    background: #3581b8;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 1px ridge rgba(13, 2, 33, 0.2);
+    transition: all 0.4s;
+    box-shadow: 0 0.3rem 0.5rem rgba(13, 2, 33, 0.4);
+}
+
+.btn-input:focus {
+    outline: none;
+}
+
+.btn-input:active {
+    transform: translateY(0.3rem);
+    box-shadow: 0 0.1rem 0.2rem rgba(13, 2, 33, 0.2);
+}
+
 /* BOX-HISTORY */
 
 .box-history h4 {
@@ -115,7 +173,7 @@ h4 {
 }
 
 .list-history {
-    margin: 1rem auto;
+    margin: 2rem auto;
     list-style: none;
 }
 
@@ -132,18 +190,18 @@ h4 {
 }
 
 .list-history .minus {
-    border-right: 0.5rem solid #c0392b;
+    border-left: 0.5rem solid #c0392b;
 }
 
 .list-history .plus {
-    border-right: 0.5rem solid #2ecc71;
+    border-left: 0.5rem solid #2ecc71;
 }
 
 .btn-delete {
     width: 2rem;
     height: 2rem;
     position: absolute;
-    left: -2.1rem;
+    right: -2rem;
     padding: 0.3rem;
     background: #c0392b;
     border: none;
@@ -165,48 +223,14 @@ h4 {
     transform: scale(0.8);
 }
 
-/* BOX-TRANSACTION */
+/* Media query to adjust section width */
+@media screen and (min-width: 772px) {
+    .section-main {
+        width: 40rem;
+        margin-right: 5rem;
+    }
 
-.box-transaction h4 {
-    border-bottom: 0.1rem solid rgba(13, 2, 33, 0.2);
-    padding-bottom: 0.5rem;
-}
-
-.box-transaction form,
-.form-control {
-    margin: 1rem auto;
-}
-
-.form-control label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-}
-
-.form-control input {
-    width: 100%;
-    padding: 1.5rem 1rem;
-    height: 3rem;
-    border: 1px ridge rgba(13, 2, 33, 0.2);
-}
-
-.btn-input {
-    width: 100%;
-    font-size: 1.6rem;
-    color: #fff;
-    background: #3581b8;
-    margin: 1rem auto;
-    padding: 1rem;
-    border: 1px ridge rgba(13, 2, 33, 0.2);
-    transition: all 0.4s;
-    box-shadow: 0 0.3rem 0.5rem rgba(13, 2, 33, 0.4);
-}
-
-.btn-input:focus {
-    outline: none;
-}
-
-.btn-input:active {
-    transform: translateY(0.3rem);
-    box-shadow: 0 0.1rem 0.2rem rgba(13, 2, 33, 0.2);
+    .section-history {
+        width: 35rem;
+    }
 }
