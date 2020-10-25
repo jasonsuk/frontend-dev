@@ -25,6 +25,7 @@
     animation-fill-mode: backwards;
     }    
 
+    &,
     &:link,
     &:visited{
     text-transform: uppercase;
@@ -33,6 +34,9 @@
     padding: 1.5rem 4rem;
     display: inline-block;
     border-radius: 10rem;
+
+    cursor: pointer;
+    border: none;
 
     /* FOR ::after */
     position: relative;

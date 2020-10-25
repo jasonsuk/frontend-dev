@@ -41,6 +41,8 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.2rem;
     
+    margin-top: 6rem;
+
     // gradient effect to text
     display: inline-block;
     background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
