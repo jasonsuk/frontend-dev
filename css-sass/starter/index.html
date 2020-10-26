@@ -17,6 +17,26 @@
 <!-- INTRODUCING BEM METHOD : `BLOCK__ELEMENT--MODIFIER` -->
 
 <body>
+    <!-- Navigation -->
+    <div class="nav">
+        <input type="checkbox" class="nav__checkbox" id="nav__toggle">
+        <label for="nav__toggle" class="nav__btn">
+            <span class="nav__icon">&nbsp;</span>
+        </label>
+
+        <div class="nav__background">&nbsp;</div>
+
+        <nav class="nav__contents">
+            <ul class="nav__list">
+                <li class="nav__list-item"><a class="nav__link" href="#">About us</a></li>
+                <li class="nav__list-item"><a class="nav__link" href="#">Your benefits</a></li>
+                <li class="nav__list-item"><a class="nav__link" href="#">Popular tours</a></li>
+                <li class="nav__list-item"><a class="nav__link" href="#">Stories</a></li>
+                <li class="nav__list-item"><a class="nav__link" href="#">Book now</a></li>
+            </ul>
+        </nav>
+    </div>
+
     <!-- SEO: HEADER -->
     <header class="header">
         <div class="header__logo-box">
@@ -34,7 +54,7 @@
 
     <!-- SEO: MAIN -->
     <main>
-        <section class="section-about">
+        <section class="section-about" id="about">
             <div class="u-text-center">
                 <h2 class="heading-secondary u-mb-lg">
                     Exciting tours for adventourous people
@@ -65,7 +85,7 @@
             </div>
         </section>
 
-        <section class="section-features">
+        <section class="section-features" id="features">
             <div class="row">
                 <div class="col-1-of-4">
                     <div class="feature-box">
@@ -100,7 +120,7 @@
 
         </section>
 
-        <section class="section-tours">
+        <section class="section-tours" id="tours">
             <div class="u-text-center u-mb-sm">
                 <h2 class="heading-secondary">
                     Most popular tours
@@ -201,7 +221,7 @@
         </section>
         
         <!-- STORY SECTION -->
-        <section class="section-story">
+        <section class="section-story" id="stories">
 
             <!-- add video as background -->
             <div class="bg-video">
@@ -250,7 +270,7 @@
             </div>
         </section>
 
-        <section class="section-booking">
+        <section class="section-booking" id="booking">
             <div class="row">
                 <div class="booking">
                     <div class="booking__form">
@@ -321,8 +341,6 @@
             </div>
         </div>
     </footer>
-
-    
 
 </body>
 
