@@ -8,16 +8,6 @@ const baseUrl = 'http://www.omdbapi.com/';
 // 3. uses click on a movie of interest -
 // 4. fetch details of the movie of interest (by id)
 
-const autocomplete = document.getElementById('autocomplete');
-autocomplete.innerHTML = `
-    <div class="dropdown" id="dropdown">
-        <input type="text" id="input">
-        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-            <div class="dropdown-content" id="contents"></div>
-        </div>
-    </div>
-`;
-
 const searchMovie = async (movieInput) => {
     const response = await axios.get(baseUrl, {
         params: {
@@ -25,45 +15,21 @@ const searchMovie = async (movieInput) => {
             s: movieInput,
         },
     });
+    if (response.data.Error) {
+        return [];
+    }
     return response.data.Search;
 };
 
-const input = document.getElementById('input');
-const dropdown = document.getElementById('dropdown');
-const contents = document.getElementById('contents');
-
-// WHEN INPUT VALUE IS DETECTED
-const onInput = async (e) => {
-    const movies = await searchMovie(e.target.value);
-
-    if (!movies) {
-        dropdown.classList.remove('is-active');
-        return;
-    }
-
-    contents.innerHTML = '';
-    movies.forEach((movie) => {
-        const item = document.createElement('a');
-        const imgSrc = movie.Poster === 'N/A' ? ' ' : movie.Poster;
-
-        item.classList.add('dropdown-item');
-        item.innerHTML = `
-        <img src=${imgSrc}>
-        <span>${movie.Title}</span>
-        `;
-
-        // When a movie selected,
-        // close dropdown and update input value
-        item.addEventListener('click', (e) => {
-            dropdown.classList.remove('is-active');
-            input.value = `${movie.Title}`;
-            onMovieSelect(movie);
-        });
-
-        contents.appendChild(item);
-        dropdown.classList.add('is-active');
-    });
-};
+createAutoComplete({
+    root: document.querySelector('.autocomplete'),
+});
+createAutoComplete({
+    root: document.querySelector('.autocomplete-two'),
+});
+createAutoComplete({
+    root: document.querySelector('.autocomplete-three'),
+});
 
 // HELPER : WHEN A MOVIE IS CLICKED ON DROPDOWN MENU
 const onMovieSelect = async (movie) => {
@@ -117,15 +83,3 @@ const movieSummaryTemplate = (movieSummary) => {
         </article>
     `;
 };
-
-// EVENT LISTENERS
-
-input.addEventListener('input', debounce(onInput, 500));
-
-// When click on any blank window area, the dropdown disappers
-document.addEventListener('click', (e) => {
-    // console.log(e.target);
-    if (!autocomplete.contains(e.target)) {
-        document.getElementById('dropdown').classList.remove('is-active');
-    }
-});
