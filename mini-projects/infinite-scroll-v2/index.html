@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <title>Infinite Scroll v2</title>
+    </head>
+    <body>
+        <h1>Blog : Tester</h1>
+
+        <section class="section-filter">
+            <input
+                type="text"
+                id="filter"
+                class="filter__input"
+                placeholder="Filter text..."
+            />
+        </section>
+
+        <section class="section-post">
+            <article class="post__container">
+                <div class="post__number">1</div>
+                <div class="post__info">
+                    <h2 class="post__heading">Post One</h2>
+                    <p class="post__paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Repellat dolor quo natus architecto quisquam autem
+                        repellendus aliquam nesciunt soluta quidem?
+                    </p>
+                </div>
+            </article>
+            <article class="post__container">
+                <div class="post__number">2</div>
+                <div class="post__info">
+                    <h2 class="post__heading">Post Two</h2>
+                    <p class="post__paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Repellat dolor quo natus architecto quisquam autem
+                        repellendus aliquam nesciunt soluta quidem?
+                    </p>
+                </div>
+            </article>
+        </section>
+
+        <section class="section-loader">
+            <div class="loader__circle"></div>
+            <div class="loader__circle"></div>
+            <div class="loader__circle"></div>
+        </section>
+
+        <!-- script -->
+        <script src="script.js"></script>
+    </body>
+</html>
