@@ -72,7 +72,6 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
-  margin-top: 6rem;
   display: inline-block;
   background-image: linear-gradient(to right, #7ed56f, #28b485);
   -webkit-background-clip: text;
@@ -440,6 +439,55 @@ body {
   .form__radio-input:checked + .form__radio-label .form__radio-btn::after {
     opacity: 1; }
 
+.popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #333;
+  z-index: 3000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s; }
+  .popup:target {
+    opacity: 1;
+    visibility: visible; }
+  .popup__content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: 50rem;
+    background-color: #fff;
+    display: table; }
+  .popup__left {
+    width: 33.33333%;
+    display: table-cell; }
+  .popup__image {
+    width: 100%;
+    height: 25rem;
+    display: block; }
+  .popup__right {
+    width: 66.66666%;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 1rem 2.5rem; }
+  .popup__paragraph {
+    margin-bottom: 4rem;
+    column-count: 2;
+    column-gap: 2rem;
+    column-rule: 1px solid rgba(119, 119, 119, 0.4); }
+  .popup__close {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    line-height: 1;
+    text-decoration: none;
+    font-size: 3.5rem;
+    color: #777; }
+
 .header {
   height: 95vh;
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
@@ -623,8 +671,6 @@ body {
   .nav__link:hover, .nav__link:active {
     background-position: 100%;
     color: #55c57a; }
-  .nav__link:active ~ .nav__link__background {
-    transform: scale(0); }
 
 .section-about {
   background-color: #f7f7f7;

@@ -142,10 +142,6 @@
             background-position: 100%;
             color: $color-primary;
         }
-
-        &:active ~ &__background {
-            transform: scale(0);
-        }
     }
 
 }
