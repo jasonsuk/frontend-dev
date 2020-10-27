@@ -1,6 +1,8 @@
 .DS_Store
 WebProject.code-workspace
 cors-anywhere/
-.DS_Store
-cors-anywhere/
 --templates/
+config.js
+.eslintrc.json
+.prettierrc
+.prettierrc .eslintrc.json
