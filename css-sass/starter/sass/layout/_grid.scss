@@ -3,17 +3,6 @@ $grid-width: 114rem;
 $gutter-vetical: 8rem;
 $gutter-horizonal: 4rem;
 
-// PUT SASS MIXIN HERE
-
-// clearfix to prevent element overflowing outside its container
-// https://developer.mozilla.org/en-US/docs/Web/CSS/clear
-@mixin clearfix {
-    &::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
 
 //////////////////////////////////////////////////////////////////////
 .row {

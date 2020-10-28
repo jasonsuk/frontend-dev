@@ -9,7 +9,20 @@
 
 html {
     // THIS DEFINES WHAT 1REM SET TO
-    font-size: 62.5% 
+    font-size: 62.5%; // 1rem = 10px 
+
+    @include respond(big-desk) {
+        font-size: 75%; // 1rem = 12px
+    } 
+    @include respond(tab-land) {
+        font-size: 56.25%; // 1rem = 9px
+    } 
+    @include respond(tab-port) {
+        font-size: 50%; // 1rem = 8px
+    } 
+    @include respond(mobile) {
+        font-size: 37.5%; // 1rem = 6px
+    } 
 }
 
 // FONT STYLES ARE ALL UNDER `base._typography.scss

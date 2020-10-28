@@ -1,3 +1,10 @@
+/* desktop-first approach (max-width)
+    - 600px : mobile (mobile)
+    - 900px : tablet-portrait (tab-port)
+    - 1200px : tablet-landscape (tab-land)
+    - [1800px : default]
+    - above : big desktop (big-desk)
+*/
 *::before, *::after {
   margin: 0;
   padding: 0;
@@ -5,6 +12,18 @@
 
 html {
   font-size: 62.5%; }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 37.5em) {
+    html {
+      font-size: 37.5%; } }
 
 body {
   /* INHERIT THIS PROPERTY FOR ALL*/

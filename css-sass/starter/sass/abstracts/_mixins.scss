@@ -1,6 +1,47 @@
+// PUT SASS MIXIN HERE
+
+// clearfix to prevent element overflowing outside its container @_grid.scss
+// https://developer.mozilla.org/en-US/docs/Web/CSS/clear
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
 @mixin centerObj {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
+// media query manager
+/* desktop-first approach (max-width)
+    - 600px : mobile (mobile)
+    - 900px : tablet-portrait (tab-port)
+    - 1200px : tablet-landscape (tab-land)
+    - [1800px : default]
+    - above : big desktop (big-desk)
+*/
+
+// @mixin respond-mobile {
+//     @media (max-width: 600px) {@content};
+// }
+
+@mixin respond($device) {
+    @if($device == mobile) {
+        @media (max-width:37.5em) {@content};  // below 600px
+    }
+    @if($device == tab-port) {
+        @media (max-width:56.25em) {@content}; // 600 - 900px
+    }
+    @if($device == tab-land) {
+        @media (max-width:75em) {@content}; // 900 - 1200px
+    }
+    @if($device == big-desk) {
+        @media (min-width: 112.5em) {@content}; // above 1800px
+    }
+}
+
