@@ -8,41 +8,59 @@ const baseUrl = 'http://www.omdbapi.com/';
 // 3. uses click on a movie of interest -
 // 4. fetch details of the movie of interest (by id)
 
-const searchMovie = async (movieInput) => {
-    const response = await axios.get(baseUrl, {
-        params: {
-            apikey: API_KEY,
-            s: movieInput,
-        },
-    });
-    if (response.data.Error) {
-        return [];
-    }
-    return response.data.Search;
+const autocompleteConfig = {
+    async fetchData(searchInput) {
+        const response = await axios.get(baseUrl, {
+            params: {
+                apikey: API_KEY,
+                s: searchInput,
+            },
+        });
+        if (response.data.Error) {
+            return [];
+        }
+        return response.data.Search;
+    },
+    renderItems(movie) {
+        const imgSrc = movie.Poster === 'N/A' ? ' ' : movie.Poster;
+        return `
+        <img src=${imgSrc}>
+        <span>${movie.Title} (${movie.Year})</span>
+        `;
+    },
+    inputValue(movie) {
+        return movie.Title;
+    },
 };
 
 createAutoComplete({
-    root: document.querySelector('.autocomplete'),
+    ...autocompleteConfig,
+    root: document.querySelector('#autocomplete-left'),
+    onItemSelect(movie) {
+        document.querySelector('.tutorial').classList.add('is-hidden');
+        const summaryEl = document.querySelector('#summary-left');
+        onMovieSelect(movie, summaryEl);
+    },
 });
 createAutoComplete({
-    root: document.querySelector('.autocomplete-two'),
-});
-createAutoComplete({
-    root: document.querySelector('.autocomplete-three'),
+    ...autocompleteConfig,
+    root: document.querySelector('#autocomplete-right'),
+    onItemSelect(movie) {
+        document.querySelector('.tutorial').classList.add('is-hidden');
+        const summaryEl = document.querySelector('#summary-right');
+        onMovieSelect(movie, summaryEl);
+    },
 });
 
 // HELPER : WHEN A MOVIE IS CLICKED ON DROPDOWN MENU
-const onMovieSelect = async (movie) => {
+const onMovieSelect = async (movie, summaryEl) => {
     const response = await axios.get(baseUrl, {
         params: {
             apiKey: API_KEY,
             i: movie.imdbID,
         },
     });
-
-    console.log(response.data);
-    const summary = document.getElementById('movieSummary');
-    summary.innerHTML = movieSummaryTemplate(response.data);
+    summaryEl.innerHTML = movieSummaryTemplate(response.data);
 };
 
 const movieSummaryTemplate = (movieSummary) => {

@@ -1,6 +1,12 @@
-const createAutoComplete = ({ root }) => {
+const createAutoComplete = ({
+    root,
+    fetchData,
+    renderItems,
+    inputValue,
+    onItemSelect,
+}) => {
     root.innerHTML = `
-        <label><b>Search For a Movie</b></label>
+        <label><b>Search For an item</b></label>
         <input type="text" class="input">
         <div class="dropdown">
             <div class="dropdown-menu" id="dropdown-menu" role="menu">
@@ -9,41 +15,35 @@ const createAutoComplete = ({ root }) => {
         </div>
     `;
 
-    console.log(root);
-
     const input = root.querySelector('input');
     const dropdown = root.querySelector('.dropdown');
     const contents = root.querySelector('.dropdown-content');
 
     // WHEN INPUT VALUE IS DETECTED
     const onInput = async (e) => {
-        const movies = await searchMovie(e.target.value);
+        const items = await fetchData(e.target.value);
 
-        if (!movies) {
+        if (!items) {
             dropdown.classList.remove('is-active');
             return;
         }
 
         contents.innerHTML = '';
-        movies.forEach((movie) => {
-            const item = document.createElement('a');
-            const imgSrc = movie.Poster === 'N/A' ? ' ' : movie.Poster;
+        items.forEach((item) => {
+            const option = document.createElement('a');
 
-            item.classList.add('dropdown-item');
-            item.innerHTML = `
-            <img src=${imgSrc}>
-            <span>${movie.Title}</span>
-            `;
+            option.classList.add('dropdown-item');
+            option.innerHTML = renderItems(item);
 
-            // When a movie selected,
+            // When an item selected,
             // close dropdown and update input value
-            item.addEventListener('click', (e) => {
+            option.addEventListener('click', (e) => {
                 dropdown.classList.remove('is-active');
-                input.value = `${movie.Title}`;
-                onMovieSelect(movie);
+                input.value = inputValue(item);
+                onItemSelect(item);
             });
 
-            contents.appendChild(item);
+            contents.appendChild(option);
             dropdown.classList.add('is-active');
         });
     };
