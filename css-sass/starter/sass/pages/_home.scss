@@ -2,7 +2,11 @@
 .section-about {
     background-color: $color-grey-light-1;
     padding: 25rem 0;
-    margin-top: -20vh; // to hide triangular gap from polygon
+    margin-top: -15vh; // to hide triangular gap from polygon
+
+    @include respond(tab-port) {
+        padding: 30rem 5rem;
+    }
 }
 
 .section-features {
@@ -16,8 +20,17 @@
 
     transform: skewY(-7deg);
 
+    @include respond(tab-port) {
+        padding: 20rem 5rem;
+        transform: skewY(-3deg);
+    }
+
     & > * {
         transform: skewY(7deg);
+
+        @include respond(tab-port) {
+            transform: skewY(3deg);
+        }
     }
     
     margin-top: -20rem;
@@ -25,14 +38,22 @@
 
 .section-tours {
     background-color: $color-grey-light-1;
-    padding: 25rem 0;
-    margin-top: -20vh; // to hide triangular gap from polygon
+    padding: 30rem 10rem 15rem;
+    margin-top: -15vh; // to hide triangular gap from polygon
+
+    @include respond(tab-port) {
+        padding: 30rem 5rem 15rem;
+    }
 }
 
 .section-story {
-    padding: 10rem 0;
-    // margin-top: -30vh; 
+    padding: 15rem 0;
+    // margin-top: -15vh; 
     position: relative;
+
+    @include respond(tab-port) {
+        padding: 10rem 0;
+    }
 }
 
 .section-booking {
@@ -47,10 +68,29 @@
     // We can divide up an image with linear-gradient!
     background-image: linear-gradient(105deg, rgba($color-white, 0.9) 50%, transparent 50%), url(../../img/nat-10.jpg);
     background-size: 100%; //same as cover
-    height: 50rem;
+    
+    @include respond(tab-land) {
+        background-image: linear-gradient(105deg, rgba($color-white, 0.9) 65%, transparent 65%), url(../../img/nat-10.jpg);
+        background-size: cover;
+    }
+
+    @include respond(tab-port) {
+        background-image: linear-gradient(105deg, rgba($color-white, 0.9) 100%, transparent 100%), url(../../img/nat-10.jpg);
+        background-size: cover;
+    }
 
     &__form {
         width: 50%;
+        padding: 2rem;
+
+        @include respond(tab-land) {
+            width: 65%;
+        }
+        
+        @include respond(tab-port) {
+            width: 100%;
+            padding: 0.5rem;
+        }
     }
 }
 

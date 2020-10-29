@@ -1,6 +1,8 @@
 // PUT VARIABLES HERE 
 $grid-width: 114rem;
 $gutter-vetical: 8rem;
+$gutter-vetical-small: 4rem;
+$gutter-horizonal: 4rem;
 $gutter-horizonal: 4rem;
 
 
@@ -9,6 +11,10 @@ $gutter-horizonal: 4rem;
     max-width: $grid-width; // will use 100vw when width lt 114rem 
     // background-color: #eee;
     margin: 3rem auto;
+
+    @include respond(tab-port) {
+        max-width: 50rem;
+    }
     
     &:not(:last-child) {
         margin-bottom: $gutter-vetical;
@@ -20,11 +26,16 @@ $gutter-horizonal: 4rem;
     // attribute selectors (^ : class that starts with)
     
     [class^="col-"] {
-        // background-color: orangered;
         float: left;
         
         &:not(:last-child) {
             margin-right: $gutter-horizonal;
+        }
+
+        @include respond(tab-port) {
+            width: 100% !important;
+            margin-right: 0;
+            margin-bottom: $gutter-vetical-small;
         }
   
     }

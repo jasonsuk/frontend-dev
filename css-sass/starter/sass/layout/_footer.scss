@@ -4,8 +4,16 @@
     color: $color-white;
     font-size: 1.5rem;
 
+    @include respond(mobile) {
+        padding: 10rem 2rem;
+    }
+
     &__logo-box {
         text-align: center;
+    }
+
+    @include respond(tab-port) {
+        margin-bottom: 0;
     }
 
     &__logo {
@@ -13,7 +21,7 @@
     }
 
     &__navigation {
-        width: 90%;
+        width: 95%;
         padding-top: 2rem;
         border-top: 2px solid $color-grey-dark;
     }
@@ -50,7 +58,7 @@
 
     &__copyright {
         display: inline-block;
-        width: 90%;
+        width: 95%;
         padding-top: 1rem;
         min-height: 15rem;
         border-top: 2px solid $color-grey-dark;

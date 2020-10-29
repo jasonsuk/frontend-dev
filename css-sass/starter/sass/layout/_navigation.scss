@@ -18,6 +18,11 @@
         background-color: $color-white;
         z-index: 2000;
         cursor: pointer;
+
+        @include respond(tab-port) {
+            top: 5rem;
+            right: 5rem;
+        }
     }
 
     // Button icon & animation
@@ -82,6 +87,11 @@
         z-index: 1000;
 
         transition: all 0.8s;
+
+        @include respond(tab-port) {
+            top: 5.5rem;
+            right: 5.5rem;
+        }
     }
 
     &__contents {

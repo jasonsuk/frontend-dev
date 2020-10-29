@@ -6,6 +6,10 @@
     padding: 2rem;
     transform: skew(-10deg);
 
+    @include respond (tab-port) {
+        transform: skew(0);
+    }
+ 
     &:hover &__image {
         filter: blur(0.3rem) brightness(80%);        
         transform: scale(1);
@@ -26,6 +30,19 @@
         // transition: all 0.5s;
         position: relative;
         text-align: center;
+
+        @include respond (tab-port) {
+            transform: translate(-2rem) skew(0);
+        } 
+
+        @include respond (mobile) {
+            transform: translateX(-2.5rem) skew(0);
+            shape-outside: none;
+            width: 85%;
+            height: 22rem;
+            margin-bottom: 2.5rem;
+            border-radius: 0.5rem;
+        }
     }
 
     &__image {
@@ -33,6 +50,12 @@
         height: 100%;
         -webkit-clip-path: circle(50% at 50% 50%);
         clip-path: circle(50% at 50% 50%);
+
+        @include respond (mobile) {
+            -webkit-clip-path: none;
+            clip-path: none;
+            border-radius: 0.5rem;
+        } 
     }
     
     &__caption {
@@ -48,6 +71,14 @@
     &__text {
         padding: 0 2rem;
         transform: skew(10deg);
+
+        @include respond (tab-port) {
+            transform: skew(0);
+        }
+
+        @include respond (mobile) {
+            clear: both;
+        }
     }
 }
 

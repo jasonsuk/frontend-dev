@@ -29,12 +29,24 @@
         width: 33.33333%;
         display: table-cell;
         // float: left;
+
+        @include respond(mobile) {
+            width: 100%;
+            display: block;
+            padding: 0.5rem;
+        }
     }
 
     &__image {
         width: 100%;
         height: 25rem;
         display: block;
+
+        @include respond(mobile) {
+            width: 48%;
+            height: 20rem;
+            display: inline-block;
+        }
     }
 
     &__right {
@@ -42,6 +54,12 @@
         display: table-cell;
         vertical-align: middle;
         padding: 1rem 2.5rem;
+
+        @include respond(mobile) {
+            width: 100%;
+            display: block;
+            padding: 0.5rem;
+        }
     }
 
     &__paragraph {
@@ -49,6 +67,15 @@
         column-count: 2;
         column-gap: 2rem;
         column-rule: 1px solid rgba($color-grey-dark, 0.4);
+
+        @include respond(mobile) {
+            width: 95%;
+            display: block;
+            padding: 0.5rem;
+            column-count: 1;
+            column-gap: 0rem;
+            column-rule: none;
+        }
     }
 
     &__close {
