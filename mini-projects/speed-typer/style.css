@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #fff;
+    /* color: #b9d6f2; */
+    font-family: 'Roboto', sans-serif;
+    background: #003559;
+}
+
+* {
+    margin: 0;
+    box-sizing: inherit;
+}
+
+.setting__btn {
+    position: fixed;
+    bottom: 2.5rem;
+    left: 2.5rem;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.6);
+}
+
+.setting__btn button {
+    cursor: pointer;
+    width: 100%;
+    padding: 0.5rem 1rem;
+}
+
+.setting__container {
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    background-color: #061a40;
+    top: 0;
+    left: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.setting__container form {
+    margin: 2rem auto;
+    text-align: center;
+    letter-spacing: 0.1rem;
+}
+
+.setting__container select {
+    cursor: pointer;
+    margin-left: 1rem;
+    width: 20rem;
+    padding: 0.5rem 0.8rem;
+    background-color: #006daa;
+    color: #fff;
+    font-family: inherit;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+.setting__container .hide {
+    transform: translateY(-100%);
+}
+
+.type__container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50rem;
+    height: 28rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #006daa;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.6);
+    border-radius: 1rem;
+}
+
+.type__container > * {
+    width: 100%;
+}
+
+.type__heading {
+    width: 90%;
+    margin: 2rem auto;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 0.4rem;
+    background-color: #0353a4;
+    border-radius: 1.5rem;
+}
+
+.type__status {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.type__play {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.type__play > * {
+    margin-bottom: 1rem;
+}
+
+.type__play h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 0.1rem;
+}
+
+.type__play input {
+    width: 50%;
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
+    text-align: center;
+}
