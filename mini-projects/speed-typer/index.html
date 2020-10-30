@@ -17,13 +17,14 @@
                 <i class="fas fa-cog"></i>
             </button>
         </div>
-        <div class="setting__container">
+        <div class="setting__container" id="settingContainer">
             <form id="settingForm">
                 <label for="difficulty">Difficulty</label>
                 <select class="setting__select--difficulty" id="difficulty">
                     <option value="easy">Easy</option>
                     <option value="moderate">Moderate</option>
-                    <option value="difficulty">Difficult</option>
+                    <option value="difficult">Difficult</option>
+                    <option value="hardcore">Hardcore</option>
                 </select>
             </form>
         </div>
@@ -31,20 +32,19 @@
             <h1 class="type__heading">Speed Typer</h1>
 
             <div class="type__status">
-                <p>Time Left: <span id="time">5s</span></p>
+                <p>Time Left: <span id="time">10s</span></p>
                 <p>Score: <span id="score">0</span></p>
             </div>
 
             <div class="type__play">
                 <small>Type the following:</small>
-                <h2 id="word">Yo Man</h2>
+                <h2 id="word">&nbsp;</h2>
                 <input
                     type="text"
                     id="input"
                     placeholder="Type the word here"
                 />
             </div>
-
             <div class="type__result" id="result"></div>
         </div>
 
