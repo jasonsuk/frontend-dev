@@ -42,9 +42,34 @@ const fetchWords = () => {
     });
 };
 
+const wordLists = [
+    'sigh',
+    'tense',
+    'airplane',
+    'ball',
+    'pies',
+    'juice',
+    'warlike',
+    'bad',
+    'north',
+    'dependent',
+    'steer',
+    'silver',
+    'highfalutin',
+    'superficial',
+    'quince',
+    'eight',
+    'feeble',
+    'admit',
+    'drag',
+    'loving',
+];
+
 const renderWord = async () => {
-    let words = await fetchWords();
-    words = words.split('\n');
+    let data = await fetchWords();
+    data = data.split('\n');
+
+    const words = data !== null ? data : wordLists;
 
     const randIdx = Math.floor(Math.random() * words.length);
 
