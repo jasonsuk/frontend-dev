@@ -3,17 +3,21 @@
     height: 45rem;
 
     // Visually converge towards the viewer
-    // perspective: 150rem;
-    // -moz-perspective: 150rem;
+    perspective: 150rem;
+    -moz-perspective: 150rem;
     
     &__side {
         height: 45rem;
         width: 100%;
         position: absolute;
-        backface-visibility: hidden;
         box-shadow: $default-box-shadow;
         border-radius: 0.3rem;
 
+        @supports((-webkit-backface-visibility: hidden) or (backface-visibility: hidden)) {
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        
         transition: all 0.8s ease;
     
         &--front {
@@ -42,8 +46,14 @@
         height: 40%;
         background-size: cover;
         background-blend-mode: screen;
-        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        
+
+        // ADJUSTING FOR BROWSER SUPPORTS
+        @supports ((-webkit-clip-path: polygon(0,0)) or (clip-path :polygon(0,0))) {
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        
+        }
 
         &--1 {background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.8)), url(../../img/nat-5.jpg);}
         &--2 {background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../../img/nat-6.jpg);}
