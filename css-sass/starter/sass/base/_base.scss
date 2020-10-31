@@ -35,3 +35,10 @@ body {
         padding: 0;
     }
 }
+
+
+// Change the default setting when the user select/scroll elements
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}

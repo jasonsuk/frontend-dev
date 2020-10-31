@@ -31,7 +31,10 @@
             &-1 {background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);}
             &-2 {background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);}
             &-3 {background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);}
+
         }
+
+   
     }
     // Rotate the entire card 
     &:hover &__side--front {
@@ -69,14 +72,7 @@
         font-weight: 300;
         text-align: right;
         text-transform: uppercase;
-        width: 80%; 
-
-        @include respond(mobile) {
-            width: 75%; 
-            top: 6rem;
-            right: 1.5rem;
-            font-size: 2rem;
-        }
+        width: 80%;
         
     }
 
@@ -88,10 +84,6 @@
         &--1 {background-image: linear-gradient(to right, $color-secondary-light, $color-secondary-dark);}
         &--2 {background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);}
         &--3 {background-image: linear-gradient(to right, $color-tertiary-light, $color-tertiary-dark);}
-
-        @include respond(mobile) {
-            font-size: 1.5rem;
-        }
         
     }
 
@@ -103,13 +95,6 @@
             padding: 1rem 1rem;    
             margin: 0 auto;
             width: 75%;
-
-
-            @include respond(mobile) {
-                width: 90%;
-                font-size: 1.5rem;
-                font-weight: 300;
-            }
             
             li{
                 padding: 1rem;
@@ -143,4 +128,5 @@
         font-size: 5rem;
         font-weight: 100;
     }
+
 }
