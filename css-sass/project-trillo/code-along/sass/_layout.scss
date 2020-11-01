@@ -1,0 +1,30 @@
+.container {
+    margin: 8rem auto;
+    max-width: 120rem;
+    min-height: 50rem;
+    background-color: #fff;
+}
+
+.header {
+    height: 7rem;
+    background-color: #fff;
+    border-bottom: 1px solid var(--color-grey-light-2);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+
+    &__sidebar {
+        background-color: indianred;
+        flex: 0 0 18%;
+    }
+
+    &__main {
+        background-color: lightgreen;
+        flex: 1;
+    }
+}
