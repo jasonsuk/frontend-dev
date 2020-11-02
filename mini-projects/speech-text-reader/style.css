@@ -41,7 +41,7 @@ body {
 
     position: fixed;
     left: 50%;
-    top: 50%;
+    top: -50%;
     transform: translate(-50%, -50%);
     width: 50rem;
     height: 50rem;
@@ -50,18 +50,32 @@ body {
 
     padding: 2rem;
 
+    z-index: 1000;
     opacity: 0;
     visibility: hidden;
+
+    transition: all 0.5s ease-in-out;
+}
+
+.text-box.show {
+    opacity: 1;
+    visibility: visible;
+    top: 50%;
 }
 
 .btn-close {
     position: absolute;
-    right: 2.5rem;
-    top: 2.5rem;
+    right: 1.5rem;
+    top: 1.5rem;
     color: var(--color-main);
-    font-size: 2.5rem;
-    width: 2.5rem;
-    height: 2.5rem;
+    font-size: 3.5rem;
+    width: 4rem;
+    height: 4rem;
+}
+
+.btn-close:hover {
+    cursor: pointer;
+    transform: translateY(0.2rem);
 }
 
 /* Box - main */
@@ -95,6 +109,13 @@ main {
 
 .box p {
     margin-left: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.box.effect {
+    background-color: #aee5d8;
+    transform: scale(1.1);
 }
 
 /* tablet-portrait - 600px */
@@ -131,13 +152,15 @@ main {
 }
 
 .text-content select {
-    width: 40%;
-    height: 2.5rem;
+    width: 85%;
+    height: 3.5rem;
+    outline: none;
 }
 
 .text-content textarea {
     width: 85%;
-    height: 20rem;
+    height: 22.5rem;
+    outline: none;
 }
 
 /* Button */
