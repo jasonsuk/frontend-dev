@@ -18,7 +18,7 @@
 .content {
     display: flex;
 
-    @media only screen and (max-width: 56.25rem) {
+    @media only screen and (max-width: $bp-md) {
         flex-direction: column;
     }
 
@@ -44,12 +44,17 @@
 
 .details {
     display: flex;
+    flex-direction: row;
     padding: 4.5rem;
     background-color: var(--color-grey-light-1);
     border-bottom: var(--line);
 
     color: var(--color-grey-dark-2);
     font-size: 1.4rem;
+
+    @media screen and (max-width: $bp-content) {
+        flex-direction: column;
+    }
 }
 
 .description {

@@ -16,6 +16,13 @@
     --line: 2px solid #f4f2f2;
 }
 
+// VARIABLES FOR MEDIA QUERY - desktop viewport width as a default (1200px)
+$bp-lg: 75em; // max-width : 1200px
+$bp-md : 56.25em; // 900px
+$bp-content : 46.875em; // 750px
+$bp-sm : 37.5em; // 600px
+$bp-mobile : 25em; // 400px
+
 *,
 *::before,
 *::after {
@@ -26,7 +33,15 @@
 
 html {
     box-sizing: border-box;
-    font-size: 62.5%;
+    font-size: 62.5%; // 1rem = 10px
+
+    @media screen and (max-width:$bp-sm) {
+        font-size: 56.25%; // 1rem = 8px
+    }
+
+    @media screen and (max-width:$bp-mobile) {
+        font-size: 37.5%; // 1rem = 6px
+    }
 }
 
 body {

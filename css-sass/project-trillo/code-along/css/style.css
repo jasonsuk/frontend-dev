@@ -22,6 +22,12 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
+  @media screen and (max-width: 37.5em) {
+    html {
+      font-size: 56.25%; } }
+  @media screen and (max-width: 25em) {
+    html {
+      font-size: 37.5%; } }
 
 body {
   font-size: var(--default-font-size);
@@ -47,7 +53,7 @@ body {
 
 .content {
   display: flex; }
-  @media only screen and (max-width: 56.25rem) {
+  @media only screen and (max-width: 56.25em) {
     .content {
       flex-direction: column; } }
   .content__sidebar {
@@ -62,11 +68,15 @@ body {
 
 .details {
   display: flex;
+  flex-direction: row;
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
   border-bottom: var(--line);
   color: var(--color-grey-dark-2);
   font-size: 1.4rem; }
+  @media screen and (max-width: 46.875em) {
+    .details {
+      flex-direction: column; } }
 
 .description {
   flex: 0 0 60%;
@@ -209,22 +219,38 @@ body {
   font-size: 1.2rem;
   text-align: center; }
 
-@media only screen and (max-width: 56.25rem) {
+@media only screen and (max-width: 56.25em) {
   .sidebar {
     flex-direction: row;
+    align-items: center;
+    padding: 1rem 1.5rem;
     height: 6rem; }
     .sidebar__item {
-      margin: 0 auto;
-      padding: 0 auto; }
+      margin: 0rem auto;
+      padding: 1rem 1.5rem; }
     .sidebar__item::before {
-      height: 6rem; }
+      height: 4.5rem; }
     .sidebar__item:not(:last-child) {
-      margin-right: 2rem; }
+      margin-bottom: 0rem; }
+    .sidebar__icon {
+      height: 2.5rem;
+      width: 2.5rem;
+      fill: currentColor;
+      margin-right: 1rem; }
   .legal {
     padding: 0;
     position: absolute;
     opacity: 0;
     visibility: hidden; } }
+
+@media screen and (max-width: 25em) {
+  .sidebar {
+    flex-direction: row;
+    height: 6rem; }
+    .sidebar__item::before {
+      height: 6rem; }
+    .sidebar__item:not(:last-child) {
+      margin-right: 2rem; } }
 
 .gallery {
   display: flex; }
@@ -246,6 +272,11 @@ body {
     font-weight: 300;
     letter-spacing: 2px;
     color: var(--color-grey-dark-2); }
+    @media only screen and (max-width: 37.5em) {
+      .overview__heading {
+        font-size: 1.5rem;
+        font-weight: 600;
+        padding: 0.5rem 1.5rem; } }
   .overview__stars {
     display: flex;
     flex: 1;
@@ -288,8 +319,7 @@ body {
   0% {
     transform: scale(1); }
   50% {
-    transform: scale(1.1);
-    background: var(--color-grey-light-1); }
+    transform: scale(1.1); }
   100% {
     transform: scale(1); } }
 
@@ -339,9 +369,21 @@ body {
 .review {
   margin-bottom: 3.5rem;
   padding: 3rem;
-  background-color: #fff; }
+  background-color: #fff;
+  position: relative; }
+  .review::before {
+    content: "\201C";
+    position: absolute;
+    left: 0rem;
+    top: -3rem;
+    font-size: 20rem;
+    color: var(--color-grey-light-2);
+    z-index: 1;
+    font-family: sans-serif; }
   .review__text {
-    margin-bottom: 1.5rem; }
+    margin-bottom: 1.5rem;
+    z-index: 10;
+    position: relative; }
   .review__info {
     display: flex;
     align-items: center; }
@@ -368,3 +410,41 @@ body {
   .review__rating {
     font-size: 2rem;
     color: var(--color-primary); }
+
+.cta {
+  padding: 2.5rem 4.5rem;
+  color: var(--color-grey-dark-3);
+  text-align: center; }
+  .cta__text {
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: 100;
+    margin-bottom: 2.5rem; }
+  .cta__btn {
+    color: var(--color-grey-light-1);
+    background-image: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 10rem;
+    width: 25rem;
+    position: relative;
+    overflow: hidden; }
+    .cta__btn--front {
+      padding: 2rem 6rem;
+      display: inline-block;
+      transition: all 0.4s; }
+    .cta__btn--back {
+      padding: 2rem 0rem;
+      position: absolute;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      top: -100%;
+      left: 0%;
+      transition: all 0.4s; }
+    .cta__btn:hover .cta__btn--front,
+    .cta__btn:hover .cta__btn--back {
+      transform: translateY(100%); }
+    .cta__btn:focus {
+      animation: popIn 1s infinite;
+      outline: none; }

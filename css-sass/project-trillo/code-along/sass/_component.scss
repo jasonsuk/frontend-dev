@@ -196,23 +196,33 @@
     text-align: center;
 }
 
-@media only screen and (max-width: 56.25rem) {
+@media only screen and (max-width: $bp-md) {
 
     .sidebar {
         flex-direction: row;
+        // justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
         height: 6rem;
-
+        
         &__item {
-            margin: 0 auto;
-            padding: 0 auto;
+            margin: 0rem auto;
+            padding: 1rem 1.5rem;
         }
 
         &__item::before {
-            height: 6rem;
+            height: 4.5rem;
         }
 
         &__item:not(:last-child) {
-            margin-right: 2rem;
+            margin-bottom: 0rem;
+        }
+
+        &__icon {
+            height: 2.5rem;
+            width: 2.5rem;
+            fill: currentColor;
+            margin-right: 1rem;
         }
 
     }
@@ -224,6 +234,29 @@
         visibility: hidden;
     }
 }
+
+@media screen and (max-width:$bp-mobile) {
+    .sidebar {
+        flex-direction: row;
+        height: 6rem;
+
+        &__item {
+            // margin: 0 auto;
+            // padding: 0 auto;
+        }
+
+        &__item::before {
+            height: 6rem;
+        }
+
+        &__item:not(:last-child) {
+            margin-right: 2rem;
+        }
+
+    }
+}
+
+
 
 
 //////////////////////////////////////////////////////////////////////
@@ -262,6 +295,12 @@
         font-weight: 300;
         letter-spacing: 2px;
         color: var(--color-grey-dark-2);
+
+        @media only screen and (max-width: $bp-sm) {
+            font-size: 1.5rem;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+        }
     }
 
     &__stars {
@@ -332,7 +371,6 @@
 
     50% {
         transform: scale(1.1);
-        background: var(--color-grey-light-1);
     }
 
     100% {
@@ -395,6 +433,7 @@
     justify-content: space-between;
     align-items: center;
 
+    
     &__text {
         font-size: 1.2rem;
         color: var(--color-grey-dark-3);
@@ -426,9 +465,23 @@
     margin-bottom: 3.5rem;
     padding: 3rem;
     background-color: #fff;
+    position: relative;
+
+    &::before {
+        content:"\201C";
+        position: absolute;
+        left: 0rem;
+        top: -3rem;
+        font-size: 20rem;
+        color: var(--color-grey-light-2);
+        z-index: 1;
+        font-family: sans-serif;
+    }
 
     &__text {
         margin-bottom: 1.5rem;
+        z-index: 10;
+        position: relative;
     }
 
     &__info {
@@ -471,5 +524,62 @@
         font-size: 2rem;
         color: var(--color-primary);
     }
-    
+ 
+}
+
+
+//////////////////////////////////////////////////////////////////////
+// CTA BUTTON FOR BOOKING
+//////////////////////////////////////////////////////////////////////
+
+.cta {
+    padding: 2.5rem 4.5rem;
+    color: var(--color-grey-dark-3);
+    text-align: center;
+
+    &__text {
+        text-transform: uppercase;
+        font-size: 1.6rem;
+        font-weight: 100;
+        margin-bottom: 2.5rem;
+    }
+
+    &__btn {
+        color: var(--color-grey-light-1);
+        background-image: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+        font-size: 1.6rem;
+        border: none;
+        border-radius: 10rem;
+        width: 25rem;
+
+        position: relative;
+        overflow: hidden;
+
+        &--front {
+            padding: 2rem 6rem;
+            display:inline-block;
+            transition: all 0.4s;
+        }
+
+        &--back {            
+            padding: 2rem 0rem;
+            position: absolute;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            top: -100%;
+            left: 0%;    
+            transition: all 0.4s;
+        }
+
+        &:hover &--front,
+        &:hover &--back {
+            transform: translateY(100%);
+        }
+
+        &:focus {
+            animation: popIn 1s infinite;
+            outline: none;
+        }
+    }
 }
