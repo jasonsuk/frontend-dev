@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@100;300;400;500;700;900&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-family: 'Exo', sans-serif;
+    color: #f4f4f2;
+
+    background-image: url('img/danil-aksenov-gWZfmnDoL_E-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 100vh;
+    position: relative;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+body * {
+    z-index: 10;
+}
+
+.heading {
+    margin-top: 7.5rem;
+    font-size: 4.5rem;
+}
+
+.message-box {
+    min-height: 30rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.message {
+    width: 100%;
+    font-size: 20rem;
+    opacity: 0.4;
+}
+
+.container {
+    width: 50rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.time {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.time:not(:last-child) {
+    margin-right: 5rem;
+}
+
+/* Loader */
+.loading {
+    position: absolute;
+    bottom: 8rem;
+}
+
+.loading.show {
+    display: block;
+}
+
+.loading.hide {
+    display: none;
+}
+
+/* Date Selector */
+
+.optionBar {
+    position: absolute;
+    bottom: 0;
+    /* transform: translateY(-100%); */
+    width: 100%;
+    height: 5rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #f4f4f2;
+    font-size: 1.4rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dateSelect {
+    width: 20rem;
+    height: 2.5rem;
+    margin-left: 2.5rem;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #f4f4f2;
+
+    border-radius: 10px;
+}
+
+.dateSelect:focus {
+    outline: none;
+}

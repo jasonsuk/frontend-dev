@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <title>New Year Countdown</title>
+    </head>
+    <body>
+        <h1 class="heading">Countdown To</h1>
+        <div class="message-box">
+            <h2 class="message" id="message">&nbsp;</h2>
+        </div>
+        <div class="container">
+            <div class="time">
+                <h2 id="day">&nbsp;</h2>
+                <small>Days</small>
+            </div>
+            <div class="time">
+                <h2 id="hour">&nbsp;</h2>
+                <small>Hours</small>
+            </div>
+            <div class="time">
+                <h2 id="min">&nbsp;</h2>
+                <small>Minutes</small>
+            </div>
+            <div class="time">
+                <h2 id="sec">&nbsp;</h2>
+                <small>Seconds</small>
+            </div>
+        </div>
+
+        <div id="loader" class="loading show">
+            <img src="img/spinner.gif" alt="Loader" />
+        </div>
+
+        <nav class="optionBar">
+            <label for="dateSelect">Select Anniversary</label>
+            <select class="dateSelect" id="dateSelect"></select>
+        </nav>
+
+        <!-- script -->
+        <script src="script.js"></script>
+    </body>
+</html>
