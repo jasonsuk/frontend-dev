@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    min-height: 100vh;
+
+    background-image: url('img/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: #fff;
+}
+
+.container img {
+    margin-top: 5.5rem;
+}
+
+.container > * {
+    margin-bottom: 2.5rem;
+}
+
+.message-box {
+    text-align: center;
+    width: 80%;
+}
+
+.message-box > * {
+    margin-bottom: 2.5rem;
+    font-size: 2.2rem;
+}
+
+.input {
+    width: 100%;
+    height: 4.5rem;
+    padding: 1rem;
+    border: 1px ridge;
+    overflow: scroll;
+}
+
+.message {
+    text-transform: uppercase;
+    font-weight: 900;
+    display: inline-block;
+    height: 10rem;
+}
+
+.btn-play-again {
+    margin-top: 4.5rem;
+    padding: 1.5rem 5.5rem;
+    color: #000;
+    font-family: inherit;
+    font-size: 1.6rem;
+    border-radius: 10rem;
+    border: none;
+    transition: all 0.4s;
+}
+
+.btn-play-again:focus {
+    outline: none;
+}
+
+.btn-play-again:hover {
+    transform: scale(1.1);
+}
+
+.btn-play-again:active {
+    transform: scale(1);
+}
