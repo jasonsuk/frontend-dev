@@ -29,6 +29,7 @@ const showMessage = (input) => {
 };
 
 const checkNumber = (input) => {
+    input = input * 1;
     // Validate the input
     if (isNaN(input)) {
         msgBox.innerHTML += `            
@@ -52,11 +53,11 @@ const checkNumber = (input) => {
 
     if (input === randNum) {
         // Overwrite a message
-        document.body.innerHTML = `
+        document.body.innerHTML = `            
             <h2>Congratulations! <br><br>You guessed a correct number : 
                 <span>${randNum}</span>
             </h2>
-            <button class="btn-play-again" id="btn-play-again">Play again</button>
+            <button class="btn-play-again" id="btn-play-again">Play again</button>   
         `;
     } else if (input > randNum) {
         msgBox.innerHTML += `
