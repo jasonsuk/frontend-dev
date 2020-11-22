@@ -4,7 +4,7 @@ The repository is to collect front end web development works that will include, 
 
 - Mini Projects (HTML, CSS & Vanilla JavaScript)
 - Advanced CSS and SASS 
-- React.js (in the future)
+- React.js (**Now I am working on it!**)
 
 ### Important note
 The projects have not been yet deployed on web. 
