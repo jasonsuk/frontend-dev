@@ -4,7 +4,6 @@ import { CardList } from './components/card-list/card-list.component';
 import { SearchBox } from './components/search-box/search-box.component';
 
 import './App.css';
-// import { computeHeadingLevel } from '@testing-library/react';
 
 class App extends Component {
     constructor() {
@@ -13,6 +12,8 @@ class App extends Component {
             monsters: [],
             searchField: '',
         };
+        // this.handleSearch = this.handleSearch.bind(this);
+        // instead we use an arrow function for handlesearch func
     }
 
     // LIFECYCLE METHOD
@@ -22,22 +23,25 @@ class App extends Component {
             .then((users) => this.setState({ monsters: users }));
     }
 
-    filterMonsters() {
+    handleSearch = (e) => {
+        this.setState({ searchField: e.target.value });
+    };
+
+    filterMonsters = () => {
         const { monsters, searchField } = this.state;
         const filteredMonsters = monsters.filter((monster) =>
             monster.name.toLowerCase().includes(searchField.toLowerCase())
         );
         return filteredMonsters;
-    }
+    };
 
     render() {
         return (
             <div className="App">
+                <h1> Monsters Rolodex </h1>
                 <SearchBox
                     placeholder={'Search monster'}
-                    eventHandler={(e) =>
-                        this.setState({ searchField: e.target.value })
-                    }
+                    eventHandler={this.handleSearch}
                 />
                 <CardList monsters={this.filterMonsters()} />
             </div>
