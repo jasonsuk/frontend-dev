@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure React</title>
+</head>
+<body>
+    <div id="root">React not rendered</div>
+    <script src="https://unpkg.com/react@16.8.6/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.development.js"></script>
+    <script>
+
+        // Making reusable code
+        const Person = (props) => {
+            return React.createElement('div', {}, [
+                React.createElement('h2', {}, props.name),
+                React.createElement('p', {}, props.title)
+            ])
+        }
+
+        class App extends React.Component {
+            render() {
+                return React.createElement(
+                    'div', 
+                    {}, 
+                    [ 
+                        React.createElement('h1', {}, 'React is rendered!!!'),
+                        React.createElement(Person, {
+                            name: 'Jason',
+                            title: 'Developer'
+                        }),
+                        React.createElement(Person, {
+                            name: 'Seulki',
+                            title: 'Director'
+                        }),
+                        React.createElement(Person, {
+                            name: 'BTS',
+                            title: 'Band'
+                        })
+                    ])
+            }
+        }        
+
+        // Create multiple elmeents using array
+        // const Person = () => {
+        //     return React.createElement('div', {}, [
+        //         React.createElement('h2', {}, 'Jason'),
+        //         React.createElement('p', {}, 'Developer')
+        //     ])
+        // }
+
+        // const App = () => {
+        //     return React.createElement('div', {}, 
+        //         [
+        //             React.createElement('h1', {}, 'React is rendered!!'),
+        //             React.createElement(Person)
+        //         ]
+        //     )            
+        // }
+        ReactDOM.render(React.createElement(App), document.getElementById('root'));
+    </script>
+</body>
+</html>
