@@ -1,0 +1,5 @@
+
+
+'Wedding Anniversary': new Date(`Feburary 20 ${currentYear}`),
+"Seulki's Birthday": new Date(`August 16 ${currentYear}`),
+"Junghoon's Birthday": new Date(`December 8 ${currentYear}`),
