@@ -6,3 +6,4 @@ config.js
 .eslintrc.json
 .prettierrc
 .prettierrc .eslintrc.json
+dates.text
