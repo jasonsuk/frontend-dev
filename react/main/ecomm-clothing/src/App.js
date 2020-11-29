@@ -2,24 +2,16 @@ import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
 
-import Homepage from './pages/homepage.component';
-
-// Temporary DOM - HatsPage
-const HatsPage = () => {
-    return (
-        <div>
-            <h1>HATS!</h1>
-        </div>
-    );
-};
+import HomePage from './pages/homepage/homepage.component';
+import ShopPage from './pages/shop/shop.component';
 
 function App() {
     return (
         <div>
             {/* <Link to="/hats">To Hats</Link> */}
             <Switch>
-                <Route exact path="/" component={Homepage} />
-                <Route path="/shop/hats" component={HatsPage} />
+                <Route exact path="/" component={HomePage} />
+                <Route path="/shop" component={ShopPage} />
             </Switch>
         </div>
     );
