@@ -1,12 +1,12 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import './App.css';
 
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
-import SignInUp from './pages/sign-in-up/sign-in-up.component';
+import SignInUpPage from './pages/sign-in-up/sign-in-up.component';
 import Header from './components/header/header.component';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
@@ -52,12 +52,29 @@ class App extends React.Component {
                 <Switch>
                     <Route exact path="/" component={HomePage} />
                     <Route path="/shop" component={ShopPage} />
-                    <Route path="/signin" component={SignInUp} />
+                    <Route
+                        exact
+                        path="/signin"
+                        // component={SignInUpPage}
+                        render={() =>
+                            this.props.currentUser ? (
+                                <Redirect to="/" />
+                            ) : (
+                                <SignInUpPage />
+                            )
+                        }
+                    />
                 </Switch>
             </div>
         );
     }
 }
+
+// Import currentUser from user.reducer.js for redirecting when user signed in
+// {user} destructed from state
+const mapStateToProps = ({ user }) => ({
+    currentUser: user.currentUser,
+});
 
 // As the second argument passed in to connect,
 // mapDispatchToProps is used for dispatching actions to the store.
@@ -69,4 +86,4 @@ const mapDispatchToProps = (dispatch) => ({
     setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
