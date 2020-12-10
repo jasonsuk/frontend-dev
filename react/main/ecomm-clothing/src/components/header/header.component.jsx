@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+
 import { ReactComponent as Logo } from '../assets/logo.svg';
 
 import { auth } from '../../firebase/firebase.utils';
+
+import { selectCurrentUser } from '../../redux/user/user.selector';
+import { selectCartHidden } from '../../redux/cart/cart.selector';
 
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
@@ -42,11 +47,16 @@ const Header = ({ currentUser, hidden }) => (
 // from the store that the connected component needs.
 
 // The first argument is state = the entire Redux store state
+// const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
+//     // Return object that gets data to prop of component
+//     currentUser: currentUser,
+//     hidden: hidden,
+// });
 
-const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
-    // Return object that gets data to prop of component
-    currentUser: currentUser,
-    hidden: hidden,
+// Using reselect for state memoization
+const mapStateToProps = createStructuredSelector({
+    currentUser: selectCurrentUser,
+    hidden: selectCartHidden,
 });
 
 export default connect(mapStateToProps)(Header);
