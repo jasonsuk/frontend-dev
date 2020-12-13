@@ -18,6 +18,14 @@ export const selectCollections = createSelector(
     (shop) => shop.collections
 );
 
+// Side effect of data normalization is
+// @collection-overview.component : .map() is an array method and cannot be used onto an object
+// So it needs some transformation into array
+export const selectionCollectionsForPreview = createSelector(
+    [selectCollections],
+    (collections) => Object.keys(collections).map((key) => collections[key])
+);
+
 // Data normalization : @shop.data.js store 'large data' in object instead in array
 export const selectCollection = (collectionUrlParams) =>
     createSelector(
