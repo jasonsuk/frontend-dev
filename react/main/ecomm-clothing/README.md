@@ -1,5 +1,5 @@
-# Building E-commerce website using React.js
+# E-commerce clothing
 
-This project will build an e-commerce website by applying core concepts of React.js.
+Building an e-commerce site using React.js. The repository is to archive works along with a Udemy course, [Complete React Developer in 2020 (w/ Redux, Hooks, GraphQL)](https://www.udemy.com/course/complete-react-developer-zero-to-mastery/).
 
-The product is a result of the codes along [Complete React Developer in 2020 (w/ Redux, Hooks, GraphQL) course](https://www.udemy.com/course/complete-react-developer-zero-to-mastery/) and css/sass styling files are provided by the course instructors as they are not focus here.
+The actual deployment will be seperately done.
