@@ -25,4 +25,7 @@ yarn-error.log*
 # styling
 .eslintcache 
 .prettierrc
+
+# archive
 Before-redux/
+Before-deploy-01/

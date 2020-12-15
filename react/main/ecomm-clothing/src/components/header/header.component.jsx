@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
@@ -13,33 +12,42 @@ import { selectCartHidden } from '../../redux/cart/cart.selector';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
-import './header.styles.scss';
+import {
+    HeaderContainer,
+    LogoContainer,
+    OptionsContainer,
+    OptionContainer,
+} from './header.styles';
 
 const Header = ({ currentUser, hidden }) => (
-    <div className="header">
-        <Link to="/">
+    <HeaderContainer className="header">
+        <LogoContainer to="/">
             <Logo className="logo" />
-        </Link>
-        <div className="options">
-            <Link className="option" to="/shop">
+        </LogoContainer>
+        <OptionsContainer className="options">
+            <OptionContainer className="option" to="/shop">
                 SHOP
-            </Link>
-            <Link className="option" to="/contact">
+            </OptionContainer>
+            <OptionContainer className="option" to="/contact">
                 CONTACT
-            </Link>
+            </OptionContainer>
             {currentUser ? (
-                <div className="option" onClick={() => auth.signOut()}>
+                <OptionContainer
+                    as="div"
+                    className="option"
+                    onClick={() => auth.signOut()}
+                >
                     Sign Out
-                </div>
+                </OptionContainer>
             ) : (
-                <Link className="option" to="/signin">
+                <OptionContainer className="option" to="/signin">
                     Sign In
-                </Link>
+                </OptionContainer>
             )}
             <CartIcon />
-        </div>
+        </OptionsContainer>
         {hidden ? null : <CartDropdown />}
-    </div>
+    </HeaderContainer>
 );
 
 // As the first argument passed in to connect,

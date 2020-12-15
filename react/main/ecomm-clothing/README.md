@@ -7,3 +7,17 @@ Building an e-commerce site using React.js. The repository is to archive works a
 ### Deployement
 
 The app is deployed at https://clothing-ecomm-react.herokuapp.com/ as a static web site using [buildpack](https://github.com/mars/create-react-app-buildpack).
+
+### Contents
+
+-   React state & components
+-   Router & routing
+-   Forms
+-   Firebase
+-   Redux
+-   Persistence
+-   Stripe payment
+    <br><br>
+    ===first deployment===
+    <br><br>
+-   styled-components : replacing css/scss with styled-components
