@@ -21,7 +21,7 @@ export const selectCollections = createSelector(
 // Side effect of data normalization is
 // @collection-overview.component : .map() is an array method and cannot be used onto an object
 // So it needs some transformation into array
-export const selectionCollectionsForPreview = createSelector(
+export const selectCollectionsForPreview = createSelector(
     [selectCollections],
     (collections) => Object.keys(collections).map((key) => collections[key])
 );

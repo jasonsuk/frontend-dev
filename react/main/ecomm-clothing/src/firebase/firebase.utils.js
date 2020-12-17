@@ -5,6 +5,7 @@ import firebase from 'firebase/app';
 // Add the Firebase services that you want to use
 import 'firebase/auth';
 import 'firebase/firestore';
+// import { clearItemFromCart } from '../redux/cart/cart.action';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -42,6 +43,41 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     }
 
     return userRef;
+};
+
+export const addCollectionAndDocuments = async (
+    collectionKey,
+    documentsToAdd
+) => {
+    const collectionRef = firestore.collection(collectionKey);
+
+    // Save when all data is fetched
+    const batch = firestore.batch();
+    documentsToAdd.forEach((doc) => {
+        const documentRef = collectionRef.doc();
+        // documentRef.set(doc)
+        batch.set(documentRef, doc);
+    });
+
+    return await batch.commit();
+};
+
+export const convertCollectionsSnapshotMap = (collections) => {
+    const transformedQuery = collections.docs.map((doc) => {
+        // console.log(doc);
+        // console.log(doc.data());
+        const { title, items } = doc.data();
+
+        return {
+            // js method : pass string and return url
+            routeName: encodeURI(title.toLowerCase()),
+            id: doc.id,
+            title,
+            items,
+        };
+    });
+
+    // console.log(transformedQuery);
 };
 
 // Initialize Firebase
