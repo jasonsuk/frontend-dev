@@ -23,14 +23,16 @@ export const selectCollections = createSelector(
 // So it needs some transformation into array
 export const selectCollectionsForPreview = createSelector(
     [selectCollections],
-    (collections) => Object.keys(collections).map((key) => collections[key])
+    (collections) =>
+        collections
+            ? Object.keys(collections).map((key) => collections[key])
+            : []
 );
 
 // Data normalization : @shop.data.js store 'large data' in object instead in array
 export const selectCollection = (collectionUrlParams) =>
-    createSelector(
-        [selectCollections],
-        (collections) => collections[collectionUrlParams]
+    createSelector([selectCollections], (collections) =>
+        collections ? collections[collectionUrlParams] : null
     );
 
 // Before data noralization

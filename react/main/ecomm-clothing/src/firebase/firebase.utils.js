@@ -18,6 +18,9 @@ const firebaseConfig = {
     appId: '1:722998189986:web:423587b4aa92bf91199cfb',
 };
 
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
 // Storing User data in Firebase - export to app.js
 export const createUserProfileDocument = async (userAuth, additionalData) => {
     if (!userAuth) return;
@@ -62,8 +65,8 @@ export const addCollectionAndDocuments = async (
     return await batch.commit();
 };
 
-export const convertCollectionsSnapshotMap = (collections) => {
-    const transformedQuery = collections.docs.map((doc) => {
+export const bringCollectionDataToApp = (collection) => {
+    const transformedQuery = collection.docs.map((doc) => {
         // console.log(doc);
         // console.log(doc.data());
         const { title, items } = doc.data();
@@ -78,10 +81,13 @@ export const convertCollectionsSnapshotMap = (collections) => {
     });
 
     // console.log(transformedQuery);
-};
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+    // Return the query data as object
+    return transformedQuery.reduce((accmulator, collection) => {
+        accmulator[collection.title.toLowerCase()] = collection;
+        return accmulator;
+    }, {});
+};
 
 // Export firebase modules
 export const auth = firebase.auth();
